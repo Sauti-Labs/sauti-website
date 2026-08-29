@@ -40,6 +40,9 @@ no conventions.
 - `docs/decisions/` established for Architecture Decision Records.
 - `docs/milestones/` established for milestone documentation (this file
   is its first occupant).
+- Project-specific root `README.md`, replacing the scaffolded placeholder.
+- `docs/contributing.md` and `docs/development.md` established.
+- `.github/pull_request_template.md` established.
 
 ## 4. Architecture established
 
@@ -99,20 +102,8 @@ introducing it:
 
 ## 7. Remaining M001 work
 
-- Replace the generic scaffolded `README.md` with a project-specific
-  root README (overview, relationship to Sauti Labs, stack, structure,
-  setup, environment variables, testing, linting, deployment,
-  documentation, contribution workflow).
-- `docs/development.md` - prerequisites, installation, local
-  development, environment configuration, linting, formatting, testing,
-  production build, troubleshooting.
-- `docs/contributing.md` - branch conventions, commit conventions, pull
-  requests, code review, testing expectations, documentation
-  expectations, ADR expectations, naming conventions, definition of
-  done.
 - Environment-variable convention and `.env.example`, once a concrete
   need for environment variables exists.
-- `.github/pull_request_template.md`.
 - CI/CD via GitHub Actions (install, type check, lint, test, build on
   pull requests and appropriate pushes).
 - Deployment foundation (preview/production pipeline, environment
@@ -136,12 +127,12 @@ M001 is complete when all of the following are true:
 - The milestone system exists and this document accurately reflects
   repository history. (Done)
 - A project-specific root README exists, replacing the scaffolded
-  placeholder.
+  placeholder. (Done)
 - `docs/development.md` and `docs/contributing.md` exist and are
-  accurate.
+  accurate. (Done)
 - A Git workflow and commit convention are documented (not merely
-  practiced informally).
-- A pull request template exists.
+  practiced informally). (Done)
+- A pull request template exists. (Done)
 - CI runs on pull requests and validates install, type check, lint,
   test, and build.
 - A deployment foundation exists and is documented, including how
@@ -166,3 +157,7 @@ M001 is complete when all of the following are true:
 - `design/README.md` created, establishing the `design/` boundary.
 - `docs/milestones/` created; this document authored as its first
   entry.
+- Root `README.md` rewritten from the scaffolded placeholder into
+  project-specific documentation.
+- `docs/contributing.md` and `docs/development.md` authored.
+- `.github/pull_request_template.md` authored.
