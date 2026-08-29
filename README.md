@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# sauti-website
 
-## Getting Started
+The public-facing website for [Sauti Labs](https://github.com/Sauti-Labs).
 
-First, run the development server:
+## Status
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Foundation stage. This repository currently contains a Next.js application
+scaffold and the engineering foundation (architecture, tooling, and
+documentation conventions) it will be built on. No website features have
+been implemented yet. See `docs/milestones/M001-repository-foundation.md`
+for current progress.
+
+## Relationship to Sauti Labs
+
+`sauti-website` is maintained separately from the core `sauti-labs`
+engineering monorepo. It has its own frontend application, design/UX
+lifecycle, deployment pipeline, CI/CD, documentation, and development
+workflow, reflecting that it is an independently developed and deployed
+public-facing product surface.
+
+## Stack
+
+- [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [ESLint](https://eslint.org/) (see `docs/decisions/ADR-0001-pin-eslint-v9.md`
+  for a known, tracked version constraint)
+
+## Repository structure
+
+See `docs/architecture.md` for the full architecture specification,
+including directory responsibilities, naming conventions, and the rules
+for introducing new structure. In short:
+
+```text
+src/app/          Next.js routes and route-level composition
+src/components/   UI: ui/, layout/, sections/ (populated as built)
+src/lib/          non-UI application logic (populated as built)
+src/types/        shared TypeScript types (populated as built)
+public/           static assets
+design/           engineering-relevant design artifacts and documentation
+docs/             architecture, decisions, milestones, and process docs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`docs/architecture.md` also documents directories that are deliberately
+not created yet, and the conditions under which they should be introduced.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Local setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Requires Node.js 20+ (developed against Node 24).
 
-## Learn More
+```bash
+npm install
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+The application will be available at `http://localhost:3000`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+No environment variables are required yet. A `.env.example` will be added
+once a concrete need exists (see `docs/architecture.md` for how this
+repository handles deferred conventions).
 
-## Deploy on Vercel
+## Linting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run lint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Testing
+
+No testing foundation has been established yet. `docs/architecture.md`
+documents the conditions under which component and end-to-end tests will
+be introduced.
+
+## Deployment
+
+No deployment pipeline has been established yet. This section will be
+updated once one exists.
+
+## Documentation
+
+- `docs/architecture.md` — canonical repository architecture specification
+- `docs/decisions/` — Architecture Decision Records (ADRs)
+- `docs/milestones/` — project history and progress
+- `design/README.md` — what belongs in `design/` and what doesn't
+
+## Contributing
+
+This repository follows [Conventional Commits](https://www.conventionalcommits.org/)
+(`feat:`, `fix:`, `docs:`, `chore:`, etc.) and keeps `main` stable and
+deployable at all times. A full contribution guide will be added at
+`docs/contributing.md` as part of the ongoing repository foundation work
+(see `docs/milestones/M001-repository-foundation.md`).
