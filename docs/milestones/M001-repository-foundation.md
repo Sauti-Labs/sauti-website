@@ -43,6 +43,9 @@ no conventions.
 - Project-specific root `README.md`, replacing the scaffolded placeholder.
 - `docs/contributing.md` and `docs/development.md` established.
 - `.github/pull_request_template.md` established.
+- CI established via GitHub Actions (`.github/workflows/ci.yml`):
+  install, type check, lint, and build on pull requests and pushes to
+  `main`. Confirmed passing on a genuine clean checkout.
 
 ## 4. Architecture established
 
@@ -76,6 +79,10 @@ decisions.
 - Prefer clear, falsifiable boundaries over generic catch-alls: names
   like `shared/`, `common/`, or `misc/` are rejected on sight in favor of
   boundaries that can be defined in one sentence.
+- A green CI check must represent an actual check that was performed:
+  no placeholder or fake test stages, and a local pass is not trusted
+  until verified against a clean checkout - see the change log below for
+  why this matters in practice, not just in principle.
 
 ## 6. Intentionally deferred
 
@@ -104,12 +111,14 @@ introducing it:
 
 - Environment-variable convention and `.env.example`, once a concrete
   need for environment variables exists.
-- CI/CD via GitHub Actions (install, type check, lint, test, build on
-  pull requests and appropriate pushes).
 - Deployment foundation (preview/production pipeline, environment
   variables, secrets, rollback/recovery, deployment ownership).
 - Testing foundation appropriate to the project's actual state, once
-  justified (see Section 6).
+  justified (see Section 6). When it exists, a Test step is added to
+  `.github/workflows/ci.yml` between Lint and Build.
+- Single source of truth for the project's supported Node.js version
+  (currently hardcoded as 24 in CI, matching local development; flagged
+  as technical debt, to be addressed once deployment is established).
 - Any additional repository-level engineering safeguards identified as
   the foundation work continues (e.g. dependency auditing, GitHub
   security features, branch protection).
@@ -134,7 +143,7 @@ M001 is complete when all of the following are true:
   practiced informally). (Done)
 - A pull request template exists. (Done)
 - CI runs on pull requests and validates install, type check, lint,
-  test, and build.
+  and build. (Done - no test stage yet, by design; see Section 6.)
 - A deployment foundation exists and is documented, including how
   environment variables and secrets are handled.
 - A baseline testing foundation is documented, even if minimal, so a
@@ -161,3 +170,12 @@ M001 is complete when all of the following are true:
   project-specific documentation.
 - `docs/contributing.md` and `docs/development.md` authored.
 - `.github/pull_request_template.md` authored.
+- CI workflow added (`.github/workflows/ci.yml`): install, type check,
+  lint, build.
+- First CI run failed on a clean checkout: `tsc --noEmit` could not
+  resolve the global `LayoutProps` type, because Next.js only generates
+  it via `next dev` or `next build`, and the local pass had been
+  accidental (riding on a stale `.next/types/` left over from the
+  original scaffold command). Fixed by changing the `typecheck` script
+  to `next typegen && tsc --noEmit`, verified against a genuinely clean
+  local state, then confirmed green in GitHub Actions on the next run.
