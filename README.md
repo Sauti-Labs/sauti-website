@@ -5,9 +5,9 @@ The public-facing website for [Sauti Labs](https://github.com/Sauti-Labs).
 ## Status
 
 Foundation stage. This repository currently contains a Next.js application
-scaffold and the engineering foundation (architecture, tooling, and
-documentation conventions) it will be built on. No website features have
-been implemented yet. See `docs/milestones/M001-repository-foundation.md`
+scaffold and the engineering foundation (architecture, tooling, CI, and
+deployment) it will be built on. No website features have been
+implemented yet. See `docs/milestones/M001-repository-foundation.md`
 for current progress.
 
 ## Relationship to Sauti Labs
@@ -77,13 +77,16 @@ be introduced.
 
 ## Deployment
 
-No deployment pipeline has been established yet. This section will be
-updated once one exists.
+Deployed via [Vercel](https://vercel.com). Pushing to `main` triggers a
+Production Deployment; pull requests and other branches get Preview
+Deployments. See `docs/deployment.md` for the full pipeline, and
+`docs/decisions/ADR-0002-vercel-deployment.md` for why Vercel was chosen.
 
 ## Documentation
 
 - `docs/architecture.md` — canonical repository architecture specification
 - `docs/decisions/` — Architecture Decision Records (ADRs)
+- `docs/deployment.md` — deployment pipeline and rollback
 - `docs/milestones/` — project history and progress
 - `design/README.md` — what belongs in `design/` and what doesn't
 
@@ -91,6 +94,4 @@ updated once one exists.
 
 This repository follows [Conventional Commits](https://www.conventionalcommits.org/)
 (`feat:`, `fix:`, `docs:`, `chore:`, etc.) and keeps `main` stable and
-deployable at all times. A full contribution guide will be added at
-`docs/contributing.md` as part of the ongoing repository foundation work
-(see `docs/milestones/M001-repository-foundation.md`).
+deployable at all times. See `docs/contributing.md` for the full workflow.

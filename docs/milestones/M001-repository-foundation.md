@@ -33,7 +33,7 @@ no conventions.
   ESLint configuration).
 - ADR system established under `docs/decisions/`, with ADR-0001 recording
   the decision to pin ESLint to v9 pending `eslint-config-next` v10
-  support.
+  support, and ADR-0002 recording the decision to deploy via Vercel.
 - Approved repository architecture specification (`docs/architecture.md`).
 - `design/` boundary established, with `design/README.md` documenting
   what belongs there and what does not.
@@ -46,6 +46,10 @@ no conventions.
 - CI established via GitHub Actions (`.github/workflows/ci.yml`):
   install, type check, lint, and build on pull requests and pushes to
   `main`. Confirmed passing on a genuine clean checkout.
+- Deployment foundation established: `sauti-website` connected to Vercel
+  under the Sauti Labs team, with automatic Production Deployments on
+  push to `main` and Preview Deployments on pull requests and other
+  branches. Documented in `docs/deployment.md`.
 
 ## 4. Architecture established
 
@@ -81,8 +85,10 @@ decisions.
   boundaries that can be defined in one sentence.
 - A green CI check must represent an actual check that was performed:
   no placeholder or fake test stages, and a local pass is not trusted
-  until verified against a clean checkout - see the change log below for
-  why this matters in practice, not just in principle.
+  until verified against a clean checkout.
+- Deliberate, temporary choices (e.g. deploying on a free tier
+  pre-launch) are recorded as decisions with a documented follow-up, not
+  left as silent defaults.
 
 ## 6. Intentionally deferred
 
@@ -111,14 +117,13 @@ introducing it:
 
 - Environment-variable convention and `.env.example`, once a concrete
   need for environment variables exists.
-- Deployment foundation (preview/production pipeline, environment
-  variables, secrets, rollback/recovery, deployment ownership).
 - Testing foundation appropriate to the project's actual state, once
   justified (see Section 6). When it exists, a Test step is added to
   `.github/workflows/ci.yml` between Lint and Build.
 - Single source of truth for the project's supported Node.js version
-  (currently hardcoded as 24 in CI, matching local development; flagged
-  as technical debt, to be addressed once deployment is established).
+  (currently hardcoded as 24 in CI, matching local development).
+- Revisit Vercel Hobby vs. Pro tier before or at public launch (see
+  `docs/decisions/ADR-0002-vercel-deployment.md`).
 - Any additional repository-level engineering safeguards identified as
   the foundation work continues (e.g. dependency auditing, GitHub
   security features, branch protection).
@@ -145,7 +150,9 @@ M001 is complete when all of the following are true:
 - CI runs on pull requests and validates install, type check, lint,
   and build. (Done - no test stage yet, by design; see Section 6.)
 - A deployment foundation exists and is documented, including how
-  environment variables and secrets are handled.
+  environment variables and secrets are handled. (Done - see
+  `docs/deployment.md`; environment variables and secrets have no
+  concrete content yet, but the mechanism and process are documented.)
 - A baseline testing foundation is documented, even if minimal, so a
   new contributor knows where tests belong and when they are required.
 - Another engineer could clone the repository and understand, from the
@@ -179,3 +186,7 @@ M001 is complete when all of the following are true:
   original scaffold command). Fixed by changing the `typecheck` script
   to `next typegen && tsc --noEmit`, verified against a genuinely clean
   local state, then confirmed green in GitHub Actions on the next run.
+- `sauti-website` connected to Vercel under the Sauti Labs team (Hobby
+  tier); first Production Deployment succeeded from `main`. ADR-0002
+  recorded. `docs/deployment.md` authored. README's Deployment section
+  corrected to reflect the live pipeline.
