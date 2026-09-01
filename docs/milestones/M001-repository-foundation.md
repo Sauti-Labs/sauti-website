@@ -1,6 +1,6 @@
 ﻿# M001 - Repository Foundation
 
-Status: In Progress
+Status: Complete
 
 ## 1. Objective
 
@@ -22,7 +22,7 @@ clear engineering boundaries, documented reasoning, and a professional
 environment from her first commit, rather than an empty repository with
 no conventions.
 
-## 3. Established in this milestone so far
+## 3. Established in this milestone
 
 - GitHub repository created under the Sauti Labs organization
   (`Sauti-Labs/sauti-website`), private visibility.
@@ -89,6 +89,9 @@ decisions.
 - Deliberate, temporary choices (e.g. deploying on a free tier
   pre-launch) are recorded as decisions with a documented follow-up, not
   left as silent defaults.
+- Documentation coverage is checked before creating a new file: a
+  requirement is only a gap if no existing document's responsibility
+  already covers it.
 
 ## 6. Intentionally deferred
 
@@ -110,34 +113,40 @@ introducing it:
   them.
 - `src/components/shared/` - not deferred but permanently rejected as a
   naming pattern; see `docs/architecture.md` Section 2.
+- `.env.example` and any environment-variable convention - pending a
+  concrete need for environment variables.
+- A single source of truth for the project's supported Node.js version
+  (currently hardcoded as 24 in `.github/workflows/ci.yml`, matching
+  local development) - flagged as minor technical debt for a future
+  milestone, not a blocker for M001.
 - Other speculative structure not currently justified by a concrete,
   present need.
 
-## 7. Remaining M001 work
+## 7. Post-M001 follow-up (not blocking, tracked for future milestones)
 
-- Environment-variable convention and `.env.example`, once a concrete
-  need for environment variables exists.
-- Testing foundation appropriate to the project's actual state, once
-  justified (see Section 6). When it exists, a Test step is added to
-  `.github/workflows/ci.yml` between Lint and Build.
-- Single source of truth for the project's supported Node.js version
-  (currently hardcoded as 24 in CI, matching local development).
 - Revisit Vercel Hobby vs. Pro tier before or at public launch (see
   `docs/decisions/ADR-0002-vercel-deployment.md`).
-- Any additional repository-level engineering safeguards identified as
-  the foundation work continues (e.g. dependency auditing, GitHub
-  security features, branch protection).
+- Node.js version single source of truth (see Section 6).
+- Dependency auditing, GitHub security features (e.g. secret scanning),
+  and branch protection have not yet been assessed and should be
+  considered in a future milestone.
+- `.env.example` and environment-variable convention, once a concrete
+  need exists.
+- Real testing infrastructure (`tests/components/`, `tests/e2e/`), once
+  there is something meaningful to test - see `docs/architecture.md`
+  Section 2 and `docs/contributing.md` Testing expectations for the
+  conditions and standards already documented.
 
 ## 8. Definition of done
 
-M001 is complete when all of the following are true:
+All of the following are true:
 
 - The GitHub repository, local clone, and application scaffold are
   established and confirmed healthy. (Done)
 - The directory architecture is documented and approved in
   `docs/architecture.md`. (Done)
 - The ADR system exists and has recorded at least one real decision.
-  (Done)
+  (Done - two ADRs recorded.)
 - The milestone system exists and this document accurately reflects
   repository history. (Done)
 - A project-specific root README exists, replacing the scaffolded
@@ -151,12 +160,19 @@ M001 is complete when all of the following are true:
   and build. (Done - no test stage yet, by design; see Section 6.)
 - A deployment foundation exists and is documented, including how
   environment variables and secrets are handled. (Done - see
-  `docs/deployment.md`; environment variables and secrets have no
-  concrete content yet, but the mechanism and process are documented.)
+  `docs/deployment.md`.)
 - A baseline testing foundation is documented, even if minimal, so a
   new contributor knows where tests belong and when they are required.
+  (Done - see `docs/contributing.md` Testing expectations,
+  `docs/development.md` Testing, and `docs/architecture.md` Section 2
+  for the deferred-directory conditions. No new file was needed; this
+  was already covered.)
 - Another engineer could clone the repository and understand, from the
-  documentation alone, how they are expected to work inside it.
+  documentation alone, how they are expected to work inside it. (Done)
+
+M001 is complete. Feature development and the Lynn-specific Claude
+workflow are separate, future deliverables - see Section 30 of the
+original repository-foundation brief.
 
 ## 9. Change log / progress
 
@@ -190,3 +206,7 @@ M001 is complete when all of the following are true:
   tier); first Production Deployment succeeded from `main`. ADR-0002
   recorded. `docs/deployment.md` authored. README's Deployment section
   corrected to reflect the live pipeline.
+- Definition of done reviewed against existing documentation; testing
+  expectations confirmed already covered across `docs/contributing.md`,
+  `docs/development.md`, and `docs/architecture.md`. M001 marked
+  Complete.
