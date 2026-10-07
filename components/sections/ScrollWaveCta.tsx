@@ -1,21 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import clsx from "clsx";
 
 const BARS = 64;
 const STEP = 8;
 const H = 90;
 
-// Tuning: animation duration and timing
-const ANIMATION_DURATION = 3000; // 3 seconds
-const SPREAD = 0.45;
-const DURATION = 0.3;
-const COPY_AT = 0.55;
-
 const frac = (n: number) => n - Math.floor(n);
 const clamp = (n: number) => Math.min(1, Math.max(0, n));
-const smooth = (t: number) => t * t * (3 - 2 * t);
 const round = (n: number) => Number(n.toFixed(3));
 
 // Deterministic, so server and client agree
@@ -29,7 +21,7 @@ export function ScrollWaveCta() {
   const svgRef = useRef<SVGSVGElement>(null);
   const bars = useRef<(SVGRectElement | null)[]>([]);
   const [isVisible, setIsVisible] = useState(false);
-  const [reduced, setReduced] = useState(false);
+  const reduced = typeof window !== "undefined" ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false;
   const animationRef = useRef<number | null>(null);
 
   // Writes straight to the DOM, so there is no React re-render per frame
@@ -61,10 +53,7 @@ export function ScrollWaveCta() {
   };
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(mq.matches);
-
-    if (mq.matches) {
+    if (reduced) {
       render(0);
       return;
     }
@@ -86,7 +75,7 @@ export function ScrollWaveCta() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isVisible]);
+  }, [isVisible, reduced]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

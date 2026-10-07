@@ -38,7 +38,7 @@ export default function Contact() {
                 Get in touch
               </h2>
               <p className="text-slate font-serif">
-                We're always interested in hearing from researchers, developers, and organizations working on African language technology.
+                We&apos;re always interested in hearing from researchers, developers, and organizations working on African language technology.
               </p>
             </div>
 

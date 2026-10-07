@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ScrollWaveCta } from "@/components/sections/ScrollWaveCta";
 import type { Metadata } from "next";
 
@@ -13,17 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const chainItems = [
-    "resources",
-    "data",
-    "research",
-    "models",
-    "evaluation",
-    "infrastructure",
-    "platforms",
-    "products",
-  ];
-
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -40,7 +28,7 @@ export default function Home() {
 
         </div>
       </section>
-      
+
 
       {/* Scroll Wave CTA */}
       <ScrollWaveCta />

@@ -7,7 +7,6 @@ import Image from "next/image";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isWaveformVisible, setIsWaveformVisible] = useState(false);
-  const waveformRef = useRef<HTMLElement>(null);
 
   const navItems = [
     { name: "Home", href: "/" },
