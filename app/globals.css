@@ -1,0 +1,114 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-*: initial;
+  --color-white: #fff;
+  --color-ivory: #FAF9F5;
+  --color-oat: #F0EEE6;
+  --color-cloud: #E8E6DC;
+  --color-stone: #B0AEA5;
+  --color-slate: #5E5D59;
+  --color-ink: #141413;
+  --color-clay: #D97757;
+  --color-clay-deep: #A04A2C;
+  --color-kraft: #D4A27F;
+  --color-sky: #6A9BCC;
+  --color-olive: #788C5D;
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-source-serif);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-heading: var(--font-inter);
+
+  --color-background: var(--color-ivory);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--color-white);
+  --color-card-foreground: var(--color-ink);
+  --color-popover: var(--color-white);
+  --color-popover-foreground: var(--color-ink);
+  --color-primary: var(--color-clay);
+  --color-primary-foreground: var(--color-white);
+  --color-secondary: var(--color-oat);
+  --color-secondary-foreground: var(--color-ink);
+  --color-muted: var(--color-cloud);
+  --color-muted-foreground: var(--color-slate);
+  --color-accent: var(--color-sky);
+  --color-accent-foreground: var(--color-white);
+  --color-destructive: var(--color-clay-deep);
+  --color-border: var(--color-stone);
+  --color-input: var(--color-stone);
+  --color-ring: var(--color-clay);
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
+
+  --text-eyebrow: 0.75rem;
+  --text-display: 3.5rem;
+  --text-body-lg: 1.25rem;
+  --text-ui: 0.875rem;
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root {
+  --background: var(--color-ivory);
+  --foreground: var(--color-ink);
+  --card: var(--color-white);
+  --card-foreground: var(--color-ink);
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-clay);
+  --primary-foreground: var(--color-white);
+  --secondary: var(--color-oat);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-cloud);
+  --muted-foreground: var(--color-slate);
+  --accent: var(--color-sky);
+  --accent-foreground: var(--color-white);
+  --destructive: var(--color-clay-deep);
+  --border: var(--color-stone);
+  --input: var(--color-stone);
+  --ring: var(--color-clay);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: var(--color-ink);
+  --foreground: var(--color-ivory);
+  --card: var(--color-slate);
+  --card-foreground: var(--color-ivory);
+  --popover: var(--color-slate);
+  --popover-foreground: var(--color-ivory);
+  --primary: var(--color-clay);
+  --primary-foreground: var(--color-white);
+  --secondary: var(--color-stone);
+  --secondary-foreground: var(--color-ivory);
+  --muted: var(--color-slate);
+  --muted-foreground: var(--color-cloud);
+  --accent: var(--color-sky);
+  --accent-foreground: var(--color-ink);
+  --destructive: var(--color-clay-deep);
+  --border: var(--color-stone);
+  --input: var(--color-stone);
+  --ring: var(--color-clay);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
