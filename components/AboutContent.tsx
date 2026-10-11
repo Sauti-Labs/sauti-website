@@ -63,7 +63,7 @@ export function AboutContent() {
           </div>
           <div className="md:col-span-8 space-y-8">
             <p className="font-serif text-xl leading-relaxed text-ink font-normal border-l-2 border-clay pl-6 py-1">
-              "To build the research, technology, infrastructure, and products that can support intelligent systems across African languages at increasing depth and scale."
+              &ldquo;To build the research, technology, infrastructure, and products that can support intelligent systems across African languages at increasing depth and scale.&rdquo;
             </p>
 
             <div className="space-y-4 pt-4">
@@ -144,7 +144,7 @@ export function AboutContent() {
 
             <div className="mt-10 p-8 bg-ink text-ivory rounded-2xl space-y-3">
               <p className="font-serif text-base italic text-ivory/80">
-                Research creates knowledge. Technology turns knowledge into capability. Infrastructure makes capability reusable. Products put capability into people's hands.
+                Research creates knowledge. Technology turns knowledge into capability. Infrastructure makes capability reusable. Products put capability into people&rsquo;s hands.
               </p>
               <p className="font-heading font-semibold text-lg pt-2 text-ivory">
                 Research. Technology. Infrastructure. Products.
@@ -172,7 +172,7 @@ export function AboutContent() {
             <div className="p-6 bg-oat/40 border border-stone/30 rounded-xl space-y-3">
               <h3 className="font-heading font-semibold text-ink text-base">How We Build</h3>
               <p className="text-sm text-slate">
-                Before contributing, we ask every contributor to evaluate work against a single benchmark: <em className="text-ink font-normal">Does this strengthen Sauti's ability to build better speech and language intelligence for Africa?</em>
+                Before contributing, we ask every contributor to evaluate work against a single benchmark: <em className="text-ink font-normal">Does this strengthen Sauti&rsquo;s ability to build better speech and language intelligence for Africa?</em>
               </p>
             </div>
           </div>
