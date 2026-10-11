@@ -7,7 +7,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-heading font-semibold">Sauti</h3>
+            <h3 className="text-2xl font-heading font-semibold">Sauti Labs</h3>
             <p className="text-sm text-slate">
               Building speech and language intelligence for Africa.
             </p>
@@ -22,16 +22,17 @@ export function Footer() {
                   Home
                 </Link>
               </li>
+               <li>
+                <Link href="/about" className="text-sm text-slate hover:text-ivory transition-colors">
+                  About
+                </Link>
+              </li>
               <li>
                 <Link href="/research" className="text-sm text-slate hover:text-ivory transition-colors">
                   Research
                 </Link>
               </li>
-              <li>
-                <Link href="/products" className="text-sm text-slate hover:text-ivory transition-colors">
-                  Products
-                </Link>
-              </li>
+             
               <li>
                 <Link href="/contact" className="text-sm text-slate hover:text-ivory transition-colors">
                   Contact
