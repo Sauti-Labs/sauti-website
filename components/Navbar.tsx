@@ -219,19 +219,12 @@ function MobileGroup({ group, pathname }: { group: NavGroup; pathname: string })
   );
 }
 
-export function Navbar() {
-  const pathname = usePathname();
+function NavbarContents({ pathname }: { pathname: string }) {
   const navRef = useRef<HTMLElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [tucked, setTucked] = useState(false);
-
-  // Close everything on navigation
-  useEffect(() => {
-    setOpenMenu(null);
-    setMobileOpen(false);
-  }, [pathname]);
 
   // Escape closes and returns focus; outside click closes dropdowns
   useEffect(() => {
@@ -382,4 +375,9 @@ export function Navbar() {
       </nav>
     </header>
   );
+}
+
+export function Navbar() {
+  const pathname = usePathname();
+  return <NavbarContents key={pathname} pathname={pathname} />;
 }
