@@ -87,32 +87,32 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/research" className="text-sm text-fog hover:text-white transition-colors">
+                <Link href="/research" className="text-sm text-white hover:text-white transition-colors">
                   Overview
                 </Link>
               </li>
               <li>
-                <Link href="/research/speech-intelligence" className="text-sm text-fog hover:text-white transition-colors">
+                <Link href="/research/speech-intelligence" className="text-sm text-white hover:text-white transition-colors">
                   Speech Intelligence
                 </Link>
               </li>
               <li>
-                <Link href="/research/language-intelligence" className="text-sm text-fog hover:text-white transition-colors">
+                <Link href="/research/language-intelligence" className="text-sm text-white hover:text-white transition-colors">
                   Language Intelligence
                 </Link>
               </li>
               <li>
-                <Link href="/research/language-resources" className="text-sm text-fog hover:text-white transition-colors">
+                <Link href="/research/language-resources" className="text-sm text-white hover:text-white transition-colors">
                   Language Resources
                 </Link>
               </li>
               <li>
-                <Link href="/research/model-intelligence" className="text-sm text-fog hover:text-white transition-colors">
+                <Link href="/research/model-intelligence" className="text-sm text-white hover:text-white transition-colors">
                   Model Intelligence
                 </Link>
               </li>
               <li>
-                <Link href="/research/responsible-ai" className="text-sm text-fog hover:text-white transition-colors">
+                <Link href="/research/responsible-ai" className="text-sm text-white hover:text-white transition-colors">
                   Responsible AI
                 </Link>
               </li>
@@ -126,27 +126,27 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/commitments/responsible-ai" className="text-sm text-fog hover:text-white transition-colors">
+                <Link href="/commitments/responsible-ai" className="text-sm text-white hover:text-white transition-colors">
                   Responsible AI
                 </Link>
               </li>
               <li>
-                <Link href="/commitments/privacy" className="text-sm text-fog hover:text-white transition-colors">
+                <Link href="/commitments/privacy" className="text-sm text-white hover:text-white transition-colors">
                   Privacy and Data Protection
                 </Link>
               </li>
               <li>
-                <Link href="/commitments/security" className="text-sm text-fog hover:text-white transition-colors">
+                <Link href="/commitments/security" className="text-sm text-white hover:text-white transition-colors">
                   Security
                 </Link>
               </li>
               <li>
-                <Link href="/commitments/data-governance" className="text-sm text-fog hover:text-white transition-colors">
+                <Link href="/commitments/data-governance" className="text-sm text-white hover:text-white transition-colors">
                   Data and Research Governance
                 </Link>
               </li>
               <li>
-                <Link href="/commitments/code-of-conduct" className="text-sm text-fog hover:text-white transition-colors">
+                <Link href="/commitments/code-of-conduct" className="text-sm text-white hover:text-white transition-colors">
                   Code of Conduct
                 </Link>
               </li>
@@ -161,27 +161,27 @@ export function Footer() {
               </h4>
               <ul className="space-y-2.5">
                 <li>
-                  <Link href="/about" className="text-sm text-fog hover:text-white transition-colors">
+                  <Link href="/about" className="text-sm text-white hover:text-white transition-colors">
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link href="/company/leadership" className="text-sm text-fog hover:text-white transition-colors">
+                  <Link href="/company/leadership" className="text-sm text-white hover:text-white transition-colors">
                     Leadership
                   </Link>
                 </li>
                 <li>
-                  <Link href="/company/careers" className="text-sm text-fog hover:text-white transition-colors">
+                  <Link href="/company/careers" className="text-sm text-white hover:text-white transition-colors">
                     Careers
                   </Link>
                 </li>
                 <li>
-                  <Link href="/company/events" className="text-sm text-fog hover:text-white transition-colors">
+                  <Link href="/company/events" className="text-sm text-white hover:text-white transition-colors">
                     Events
                   </Link>
                 </li>
                 <li>
-                  <Link href="/news" className="text-sm text-fog hover:text-white transition-colors">
+                  <Link href="/news" className="text-sm text-white hover:text-white transition-colors">
                     News
                   </Link>
                 </li>
