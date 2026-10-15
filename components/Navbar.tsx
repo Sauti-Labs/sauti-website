@@ -1,311 +1,385 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useEffect } from "react";
 import Image from "next/image";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import logo from "@/public/sauti-logo-mark.jpeg";
+import {
+  navGroups,
+  newsLink,
+  cta,
+  type NavGroup,
+  type NavLink,
+} from "@/content/navigation";
 
-export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isWaveformVisible, setIsWaveformVisible] = useState(false);
+// Set to false if the logo image already contains the "Sauti Labs" name
+const SHOW_WORDMARK_TEXT = true;
 
-  useEffect(() => {
-    const waveformSection = document.querySelector("[data-waveform-section]");
-    if (!waveformSection) return;
+const matches = (pathname: string, link: NavLink) =>
+  link.exact
+    ? pathname === link.href
+    : pathname === link.href || pathname.startsWith(link.href + "/");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsWaveformVisible(entry.isIntersecting);
-        });
-      },
-      { threshold: 0.3 }
-    );
+function Chevron({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={cn("size-4", className)}
+    >
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+}
 
-    observer.observe(waveformSection);
-    return () => observer.disconnect();
-  }, []);
+function CtaButton({ className }: { className?: string }) {
+  // Not rendered until a confirmed destination is configured
+  if (!cta.href) return null;
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const classes = cn(
+    "inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-sun px-5 font-sans text-ui font-medium text-teal-900 transition-colors duration-200 hover:bg-sun-deep hover:text-white",
+    className
+  );
+
+  const arrow = (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="size-4"
+    >
+      <path d="M7 17L17 7M8 7h9v9" />
+    </svg>
+  );
+
+  return cta.external ? (
+    <a href={cta.href} target="_blank" rel="noopener noreferrer" className={classes}>
+      {cta.label}
+      {arrow}
+      <span className="sr-only">(opens in a new tab)</span>
+    </a>
+  ) : (
+    <Link href={cta.href} className={classes}>
+      {cta.label}
+    </Link>
+  );
+}
+
+function DesktopGroup({
+  group,
+  pathname,
+  open,
+  setOpen,
+}: {
+  group: NavGroup;
+  pathname: string;
+  open: boolean;
+  setOpen: (id: string | null) => void;
+}) {
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const menuId = `menu-${group.id}`;
+  const sectionActive = group.items.some((i) => matches(pathname, i));
+  const clear = () => {
+    if (timer.current) clearTimeout(timer.current);
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-ivory/85 backdrop-blur-md border-b border-stone/30 font-sans transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
-        
-        {/* Brand Logo & Identifier */}
-        <button
-          onClick={scrollToTop}
-          className="flex items-center gap-3 group focus:outline-none"
-          aria-label="Sauti Labs Home"
-        >
-          <div className="relative w-9 h-9 overflow-hidden rounded-lg transition-transform duration-300 group-hover:scale-105">
-            <Image
-              src="/sauti-logo1.png"
-              alt="Sauti Logo"
-              fill
-              className="object-contain"
-            />
-          </div>
-          {!isWaveformVisible && (
-            <span className="text-xl font-heading font-semibold text-ink tracking-tight transition-opacity duration-300">
-              Sauti Labs
-            </span>
-          )}
-        </button>
+    <div
+      className="relative"
+      onPointerEnter={(e) => {
+        if (e.pointerType !== "mouse") return;
+        clear();
+        timer.current = setTimeout(() => setOpen(group.id), 150);
+      }}
+      onPointerLeave={(e) => {
+        if (e.pointerType !== "mouse") return;
+        clear();
+        timer.current = setTimeout(() => setOpen(null), 250);
+      }}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpen(null);
+      }}
+    >
+      <button
+        id={`${menuId}-trigger`}
+        type="button"
+        aria-expanded={open}
+        aria-controls={menuId}
+        onClick={() => setOpen(open ? null : group.id)}
+        onKeyDown={(e) => {
+          if (e.key === "ArrowDown") {
+            e.preventDefault();
+            setOpen(group.id);
+            setTimeout(
+              () => document.querySelector<HTMLAnchorElement>(`#${menuId} a`)?.focus(),
+              0
+            );
+          }
+        }}
+        className={cn(
+          "relative flex min-h-11 items-center gap-1 px-1 font-sans text-ui font-medium text-text transition-colors duration-200 hover:text-link",
+          sectionActive && "font-semibold"
+        )}
+      >
+        {group.label}
+        <Chevron className={cn("transition-transform duration-200", open && "rotate-180")} />
+        {sectionActive && (
+          <span aria-hidden="true" className="absolute inset-x-1 bottom-1 h-0.5 bg-current" />
+        )}
+      </button>
 
-        {/* Desktop Navigation Menu */}
-        <div className="hidden md:flex items-center gap-2 font-heading">
-          <NavigationMenu>
-            <NavigationMenuList className="gap-1">
-              
-              {/* Home Link */}
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    "bg-transparent hover:text-ink hover:bg-oat/50 text-sm font-heading font-medium"
-                  )}
-                >
-                  <Link href="/">Home</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+      <ul
+        id={menuId}
+        hidden={!open}
+        onKeyDown={(e) => {
+          const links = Array.from(e.currentTarget.querySelectorAll<HTMLAnchorElement>("a"));
+          const i = links.indexOf(document.activeElement as HTMLAnchorElement);
+          const go = (n: number) => {
+            e.preventDefault();
+            links[(n + links.length) % links.length]?.focus();
+          };
+          if (e.key === "ArrowDown") go(i + 1);
+          if (e.key === "ArrowUp") go(i - 1);
+          if (e.key === "Home") go(0);
+          if (e.key === "End") go(links.length - 1);
+        }}
+        className="absolute left-0 top-full z-50 mt-1 w-64 rounded-lg border border-border bg-surface py-2 shadow-lg"
+      >
+        {group.items.map((item) => {
+          const current = matches(pathname, item);
+          return (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                aria-current={current ? "page" : undefined}
+                onClick={() => setOpen(null)}
+                className={cn(
+                  "flex min-h-11 items-center border-l-4 border-transparent px-4 font-sans text-ui text-text transition-colors hover:bg-bg-alt hover:text-link",
+                  current && "border-link bg-bg-alt font-semibold"
+                )}
+              >
+                {item.label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
 
-              {/* About Dropdown */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:text-ink hover:bg-oat/50 text-sm font-heading font-medium">
-                  About
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[320px] p-4 bg-ivory border border-stone/30 rounded-2xl shadow-xl space-y-2">
-                    <Link
-                      href="/about"
-                      className="block p-3 rounded-xl hover:bg-oat/60 transition-colors group"
-                    >
-                      <div className="text-sm font-heading font-semibold text-ink group-hover:text-clay">
-                        About Us
-                      </div>
-                      <p className="text-xs font-serif text-slate line-clamp-2 mt-0.5">
-                        Overview of Sauti Labs, our mission, and core values.
-                      </p>
-                    </Link>
+function MobileGroup({ group, pathname }: { group: NavGroup; pathname: string }) {
+  const sectionActive = group.items.some((i) => matches(pathname, i));
+  const [open, setOpen] = useState(sectionActive);
+  const id = `mobile-${group.id}`;
 
-                    <Link
-                      href="/about#story"
-                      className="block p-3 rounded-xl hover:bg-oat/60 transition-colors group"
-                    >
-                      <div className="text-sm font-heading font-semibold text-ink group-hover:text-clay">
-                        Our Story
-                      </div>
-                      <p className="text-xs font-serif text-slate line-clamp-2 mt-0.5">
-                        Building language intelligence infrastructure for African speech.
-                      </p>
-                    </Link>
+  return (
+    <div className="border-b border-border">
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={id}
+        onClick={() => setOpen(!open)}
+        className="flex min-h-12 w-full items-center justify-between py-3 text-left font-sans text-base font-medium text-text"
+      >
+        {group.label}
+        <Chevron className={cn("transition-transform duration-200", open && "rotate-180")} />
+      </button>
+      <ul id={id} hidden={!open} className="pb-3 pl-4">
+        {group.items.map((item) => {
+          const current = matches(pathname, item);
+          return (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                aria-current={current ? "page" : undefined}
+                className={cn(
+                  "flex min-h-11 items-center border-l-4 border-transparent pl-3 font-sans text-ui text-muted hover:text-link",
+                  current && "border-link font-semibold text-text"
+                )}
+              >
+                {item.label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
 
-                    <Link
-                      href="/about#leadership"
-                      className="block p-3 rounded-xl hover:bg-oat/60 transition-colors group"
-                    >
-                      <div className="text-sm font-heading font-semibold text-ink group-hover:text-clay">
-                        Leadership
-                      </div>
-                      <p className="text-xs font-serif text-slate line-clamp-2 mt-0.5">
-                        Meet the team, researchers, and advisors behind Sauti.
-                      </p>
-                    </Link>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+export function Navbar() {
+  const pathname = usePathname();
+  const navRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [tucked, setTucked] = useState(false);
 
-              {/* Research Dropdown */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:text-ink hover:bg-oat/50 text-sm font-heading font-medium">
-                  Research
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[340px] p-4 bg-ivory border border-stone/30 rounded-2xl shadow-xl space-y-2">
-                    <Link
-                      href="/research"
-                      className="block p-3 rounded-xl hover:bg-oat/60 transition-colors group"
-                    >
-                      <div className="text-sm font-heading font-semibold text-ink group-hover:text-clay">
-                        Overview
-                      </div>
-                      <p className="text-xs font-serif text-slate line-clamp-2 mt-0.5">
-                        Speech recognition, datasets, and multilingual benchmarks.
-                      </p>
-                    </Link>
-                    <div className="p-3 bg-oat/40 rounded-xl border border-stone/20">
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-clay font-semibold">
-                        Featured Research
-                      </span>
-                      <p className="text-xs font-serif text-ink font-medium mt-1">
-                        African Speech & Multilingual Benchmarking
-                      </p>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+  // Close everything on navigation
+  useEffect(() => {
+    setOpenMenu(null);
+    setMobileOpen(false);
+  }, [pathname]);
 
-              {/* Contact Link */}
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    "bg-transparent hover:text-ink hover:bg-oat/50 text-sm font-heading font-medium"
-                  )}
-                >
-                  <Link href="/contact">Contact</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+  // Escape closes and returns focus; outside click closes dropdowns
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (openMenu) {
+        document.getElementById(`menu-${openMenu}-trigger`)?.focus();
+        setOpenMenu(null);
+      }
+      if (mobileOpen) {
+        setMobileOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    const onPointer = (e: PointerEvent) => {
+      if (openMenu && !navRef.current?.contains(e.target as Node)) setOpenMenu(null);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointer);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointer);
+    };
+  }, [openMenu, mobileOpen]);
 
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
+  // Hide on scroll down, reappear on scroll up (spec section 4.2 proposal)
+  useEffect(() => {
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - last) < 8) return;
+      setTucked(y > last && y > 96);
+      last = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-        {/* Right CTA Area: Try Dhonam */}
-        <div className="hidden md:flex items-center gap-4">
+  // Lock background scroll while the mobile panel is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  const newsCurrent = matches(pathname, newsLink);
+
+  return (
+    <header
+      onFocusCapture={() => setTucked(false)}
+      className={cn(
+        "sticky top-0 z-50 w-full border-b border-border bg-bg transition-transform duration-200 motion-reduce:transition-none",
+        tucked && !openMenu && !mobileOpen && "-translate-y-full"
+      )}
+    >
+      <nav ref={navRef} aria-label="Primary" className="mx-auto max-w-[1440px] px-5 sm:px-8">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo and wordmark */}
           <Link
-            href="/dhonam"
-            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ink text-ivory hover:bg-ink/90 font-heading font-medium text-xs tracking-wide transition-all duration-300 shadow-md hover:shadow-lg"
+            href="/"
+            aria-label="Sauti Labs — home"
+            className="flex items-center gap-2.5 font-sans text-lg font-bold tracking-tight text-text hover:text-link"
           >
-            <span>Try Dhonam</span>
-            <svg
-              className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              />
-            </svg>
+            <Image src={logo} alt="" priority className="h-8 w-auto rounded" />
+            {SHOW_WORDMARK_TEXT && <span aria-hidden="true">SAUTI LABS</span>}
           </Link>
-        </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-slate hover:text-ink rounded-lg hover:bg-oat/50 focus:outline-none"
-          aria-label="Toggle menu"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            {isOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
+          {/* Desktop */}
+          <div className="hidden items-center gap-6 lg:flex">
+            {navGroups.map((g) => (
+              <DesktopGroup
+                key={g.id}
+                group={g}
+                pathname={pathname}
+                open={openMenu === g.id}
+                setOpen={setOpenMenu}
               />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile Navigation Drawer */}
-      {isOpen && (
-        <div className="md:hidden border-t border-stone/30 bg-ivory px-6 py-6 space-y-4 shadow-2xl animate-in slide-in-from-top-2 duration-200">
-          <div className="flex flex-col space-y-3 font-heading">
+            ))}
             <Link
-              href="/"
-              onClick={() => setIsOpen(false)}
-              className="text-base font-medium text-slate hover:text-ink py-1"
+              href={newsLink.href}
+              aria-current={newsCurrent ? "page" : undefined}
+              className={cn(
+                "relative flex min-h-11 items-center px-1 font-sans text-ui font-medium text-text transition-colors hover:text-link",
+                newsCurrent && "font-semibold"
+              )}
             >
-              Home
+              {newsLink.label}
+              {newsCurrent && (
+                <span aria-hidden="true" className="absolute inset-x-1 bottom-1 h-0.5 bg-current" />
+              )}
             </Link>
-            
-            <div className="pl-2 border-l-2 border-stone/30 space-y-2 py-1">
-              <span className="text-xs uppercase font-mono tracking-wider text-clay font-semibold">About</span>
-              <Link
-                href="/about"
-                onClick={() => setIsOpen(false)}
-                className="block text-sm font-medium text-slate hover:text-ink"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/about#story"
-                onClick={() => setIsOpen(false)}
-                className="block text-sm font-medium text-slate hover:text-ink"
-              >
-                Our Story
-              </Link>
-              <Link
-                href="/about#leadership"
-                onClick={() => setIsOpen(false)}
-                className="block text-sm font-medium text-slate hover:text-ink"
-              >
-                Leadership
-              </Link>
-            </div>
-
-            <Link
-              href="/research"
-              onClick={() => setIsOpen(false)}
-              className="text-base font-medium text-slate hover:text-ink py-1"
-            >
-              Research
-            </Link>
-            <Link
-              href="/contact"
-              onClick={() => setIsOpen(false)}
-              className="text-base font-medium text-slate hover:text-ink py-1"
-            >
-              Contact
-            </Link>
+            <CtaButton />
           </div>
 
-          <div className="pt-4 border-t border-stone/20">
-            <Link
-              href="/dhonam"
-              onClick={() => setIsOpen(false)}
-              className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-ink text-ivory font-heading font-medium text-sm"
+          {/* Mobile bar */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <CtaButton className="hidden min-[360px]:inline-flex" />
+            <button
+              ref={menuButtonRef}
+              type="button"
+              aria-label="Menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="flex size-11 items-center justify-center rounded-md text-text hover:bg-bg-alt"
             >
-              <span>Try Dhonam</span>
               <svg
-                className="w-4 h-4"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                viewBox="0 0 24 24"
+                strokeWidth={2}
+                strokeLinecap="round"
+                className="size-6"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
+                {mobileOpen ? (
+                  <path d="M6 6l12 12M18 6L6 18" />
+                ) : (
+                  <path d="M4 7h16M4 12h16M4 17h16" />
+                )}
               </svg>
-            </Link>
+            </button>
           </div>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile panel */}
+        <div
+          id="mobile-menu"
+          hidden={!mobileOpen}
+          className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto border-t border-border bg-bg px-5 pb-10 sm:px-8 lg:hidden"
+        >
+          {navGroups.map((g) => (
+            <MobileGroup key={g.id} group={g} pathname={pathname} />
+          ))}
+          <Link
+            href={newsLink.href}
+            aria-current={newsCurrent ? "page" : undefined}
+            className={cn(
+              "flex min-h-12 items-center border-b border-border py-3 font-sans text-base font-medium text-text",
+              newsCurrent && "font-semibold"
+            )}
+          >
+            {newsLink.label}
+          </Link>
+          <CtaButton className="mt-6 flex w-full min-[360px]:hidden" />
+        </div>
+      </nav>
+    </header>
   );
 }

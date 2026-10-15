@@ -1,0 +1,85 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  title: "Model Intelligence",
+  description: "Learning from limited data under real computing constraints.",
+  openGraph: {
+    title: "Model Intelligence | Sauti Labs",
+    description: "Learning from limited data under real computing constraints.",
+    url: "https://sauti.ai/research/model-intelligence",
+  },
+};
+
+export default function ModelIntelligence() {
+  const teams = [
+    { href: "/research/speech-intelligence", label: "Speech Intelligence" },
+    { href: "/research/language-intelligence", label: "Language Intelligence" },
+    { href: "/research/language-resources", label: "Language Resources" },
+    { href: "/research/model-intelligence", label: "Model Intelligence" },
+    { href: "/research/responsible-ai", label: "Responsible AI" },
+  ];
+
+  const researchAreas = [
+    "Learning from limited data",
+    "Understanding and improving model performance",
+    "Making models efficient and deployable",
+  ];
+
+  return (
+    <div className="flex flex-col pt-16">
+      <div className="max-w-[1440px] mx-auto px-6 py-16 md:py-24">
+        {/* Breadcrumb */}
+        <nav className="mb-8 text-sm">
+          <Link href="/research" className="text-[var(--color-slate)] hover:text-[var(--color-teal-600)]">
+            Research
+          </Link>
+          <span className="mx-2 text-[var(--color-slate)]">/</span>
+          <span className="font-medium">Model Intelligence</span>
+        </nav>
+
+        {/* Header */}
+        <div className="max-w-3xl mb-12">
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+            Model Intelligence
+          </h1>
+          <p className="text-lg text-[var(--color-slate)] leading-relaxed">
+            Learning from limited data under real computing constraints.
+          </p>
+        </div>
+
+        {/* Team Navigation */}
+        <nav className="mb-16 overflow-x-auto">
+          <div className="flex gap-8 border-b">
+            {teams.map((team) => (
+              <Link
+                key={team.href}
+                href={team.href}
+                className={cn(
+                  "pb-4 text-sm font-medium whitespace-nowrap transition-colors",
+                  team.href === "/research/model-intelligence"
+                    ? "font-semibold border-b-2 border-[var(--color-teal-600)]"
+                    : "hover:text-[var(--color-teal-600)]"
+                )}
+              >
+                {team.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
+
+        {/* Research Areas */}
+        <div className="space-y-8">
+          {researchAreas.map((area) => (
+            <div key={area} className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-b">
+              <h2 className="text-xl font-heading font-semibold md:col-span-1">
+                {area}
+              </h2>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

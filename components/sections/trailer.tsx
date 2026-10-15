@@ -87,7 +87,7 @@ export function ScrollWaveCta() {
             initial={{ opacity: 0, y: 15 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-2xl sm:text-4xl md:text-5xl font-heading font-bold text-ivory leading-tight tracking-tight"
+            className="text-2xl sm:text-4xl md:text-5xl font-heading font-bold text-color-mist leading-tight tracking-tight"
           >
             Introducing Dhonam 1.0
           </motion.h2>
@@ -96,7 +96,7 @@ export function ScrollWaveCta() {
             initial={{ opacity: 0, y: 15 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-sm sm:text-lg md:text-xl font-serif leading-relaxed text-ivory/85"
+            className="text-sm sm:text-lg md:text-xl font-serif leading-relaxed text-color-mist/85"
           >
             The Dholuo ASR.
           </motion.p>

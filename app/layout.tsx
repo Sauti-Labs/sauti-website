@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     default: "Sauti Labs - Building Speech and Language Intelligence for Africa",
     template: "%s | Sauti Labs",
   },
-  description: "Sauti Labs is an African AI research and technology organisation building the data, models, infrastructure and products that let machines understand and speak African languages.",
-  keywords: ["African languages", "AI", "speech recognition", "natural language processing", "machine learning", "Africa", "language technology", "ASR", "TTS", "translation"],
+  description: "Sauti Labs is an African-language AI company building the research, models, data and technologies needed to help AI understand, speak and serve Africa's linguistic diversity.",
+  keywords: ["African languages", "AI", "speech", "language technology", "Africa"],
   authors: [{ name: "Sauti Labs" }],
   creator: "Sauti Labs",
   publisher: "Sauti Labs",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://sauti.ai",
     title: "Sauti Labs - Building Speech and Language Intelligence for Africa",
-    description: "Sauti Labs is an African AI research and technology organisation building the data, models, infrastructure and products that let machines understand and speak African languages.",
+    description: "Sauti Labs is an African-language AI company building the research, models, data and technologies needed to help AI understand, speak and serve Africa's linguistic diversity.",
     siteName: "Sauti Labs",
     images: [
       {
@@ -54,9 +54,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Sauti Labs - Building Speech and Language Intelligence for Africa",
-    description: "Sauti Labs is an African AI research and technology organisation building the data, models, infrastructure and products that let machines understand and speak African languages.",
+    description: "Sauti Labs is an African-language AI company building the research, models, data and technologies needed to help AI understand, speak and serve Africa's linguistic diversity.",
     images: ["/og-image.png"],
-    creator: "@sautilabs",
   },
   robots: {
     index: true,
@@ -69,9 +68,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -79,23 +75,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Sauti Labs",
-    description: "Sauti Labs is an African AI research and technology organisation building the data, models, infrastructure and products that let machines understand and speak African languages.",
+    description: "Sauti Labs is an African-language AI company building the research, models, data and technologies needed to help AI understand, speak and serve Africa's linguistic diversity.",
     url: "https://sauti.ai",
-    logo: "https://sauti.ai/logo.png",
-    sameAs: [
-      "https://twitter.com/sautilabs",
-      "https://github.com/sauti-labs",
-      "https://linkedin.com/company/sauti-labs",
-    ],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Nairobi",
-      addressCountry: "KE",
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: "hello@sauti.ai",
-      contactType: "general",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://sauti.ai/sauti-logo1.png",
+      width: 200,
+      height: 200,
     },
   };
 
