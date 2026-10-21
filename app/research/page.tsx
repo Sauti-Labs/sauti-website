@@ -14,43 +14,36 @@ export const metadata: Metadata = {
 };
 
 export default function Research() {
-  const teams = [
-    { href: "/research/speech-intelligence", label: "Speech Intelligence" },
-    { href: "/research/language-intelligence", label: "Language Intelligence" },
-    { href: "/research/language-resources", label: "Language Resources" },
-    { href: "/research/model-intelligence", label: "Model Intelligence" },
-    { href: "/research/responsible-ai", label: "Responsible AI" },
-  ];
-
   const teamCards = [
     {
       href: "/research/speech-intelligence",
       title: "Speech Intelligence",
       description:
-        "Why speech AI struggles across African accents, languages and data gaps",
+        "The Speech Intelligence team researches the models and systems that enable machines to understand and generate African speech, advancing speech recognition, synthesis, voice technologies, and robust multilingual speech processing.",
     },
     {
       href: "/research/language-intelligence",
       title: "Language Intelligence",
       description:
-        "Poor representation of African languages in language models",
+        "The Language Intelligence team develops and studies AI systems that understand, process, and generate African languages, advancing multilingual language modeling, natural language understanding, and generation across diverse linguistic contexts.",
     },
     {
       href: "/research/language-resources",
       title: "Language Resources",
-      description: "Reliable datasets, documented corpora and benchmarks",
+      description:
+        "The Language Resources team builds the datasets, corpora, benchmarks, and linguistic resources needed to develop and evaluate AI for African languages, with an emphasis on data quality, coverage, and research reproducibility. ",
     },
     {
       href: "/research/model-intelligence",
       title: "Model Intelligence",
       description:
-        "Learning from limited data under real computing constraints",
+        "The Model Intelligence team investigates how to train, evaluate, optimize, and deploy capable AI models, advancing architectures, learning methods, and efficient systems for speech and language tasks. ",
     },
     {
       href: "/research/responsible-ai",
       title: "Responsible AI",
       description:
-        "Data governance, privacy, legal compliance, safety, accountability",
+        "The Responsible AI team investigates the safety, fairness, robustness, and societal implications of AI for African languages, developing approaches that support trustworthy systems and responsible deployment across diverse communities. ",
     },
   ];
 
@@ -73,21 +66,6 @@ export default function Research() {
             </p>
           </div>
         </div>
-
-        {/* Team Navigation */}
-        <nav className="mb-12 overflow-x-auto">
-          <div className="flex gap-8 border-b border-[var(--color-border,#e2e8f0)] pb-1">
-            {teams.map((team) => (
-              <Link
-                key={team.href}
-                href={team.href}
-                className="pb-4 text-sm font-medium whitespace-nowrap hover:text-[var(--color-teal-600)] transition-colors"
-              >
-                {team.label}
-              </Link>
-            ))}
-          </div>
-        </nav>
 
         {/* Team Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
