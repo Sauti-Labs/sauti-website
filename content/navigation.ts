@@ -14,6 +14,8 @@ export const cta = {
     external: true,
 };
 
+export const homeLink: NavLink = { href: "/", label: "Home", exact: true };
+
 export const navGroups: NavGroup[] = [
     {
         id: "research",

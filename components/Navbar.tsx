@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import logo from "@/public/sauti-logo-mark.jpeg";
 import {
   navGroups,
+  homeLink,
   newsLink,
   cta,
   type NavGroup,
@@ -271,6 +272,7 @@ function NavbarContents({ pathname }: { pathname: string }) {
     };
   }, [mobileOpen]);
 
+  const homeCurrent = matches(pathname, homeLink);
   const newsCurrent = matches(pathname, newsLink);
 
   return (
@@ -295,6 +297,19 @@ function NavbarContents({ pathname }: { pathname: string }) {
 
           {/* Desktop */}
           <div className="hidden items-center gap-6 lg:flex">
+            <Link
+              href={homeLink.href}
+              aria-current={homeCurrent ? "page" : undefined}
+              className={cn(
+                "relative flex min-h-11 items-center px-1 font-sans text-ui font-medium text-text transition-colors hover:text-link",
+                homeCurrent && "font-semibold"
+              )}
+            >
+              {homeLink.label}
+              {homeCurrent && (
+                <span aria-hidden="true" className="absolute inset-x-1 bottom-1 h-0.5 bg-current" />
+              )}
+            </Link>
             {navGroups.map((g) => (
               <DesktopGroup
                 key={g.id}
@@ -357,6 +372,16 @@ function NavbarContents({ pathname }: { pathname: string }) {
           hidden={!mobileOpen}
           className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto border-t border-border bg-bg px-5 pb-10 sm:px-8 lg:hidden"
         >
+          <Link
+            href={homeLink.href}
+            aria-current={homeCurrent ? "page" : undefined}
+            className={cn(
+              "flex min-h-12 items-center border-b border-border py-3 font-sans text-base font-medium text-text",
+              homeCurrent && "font-semibold"
+            )}
+          >
+            {homeLink.label}
+          </Link>
           {navGroups.map((g) => (
             <MobileGroup key={g.id} group={g} pathname={pathname} />
           ))}
