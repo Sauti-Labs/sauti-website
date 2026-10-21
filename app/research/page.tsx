@@ -3,10 +3,12 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Research",
-  description: "Our research teams advance speech and language intelligence for African languages, investigating the models, data, and systems needed to build AI that understands, speaks, and serves the linguistic diversity of Africa.",
+  description:
+    "Our research teams advance speech and language intelligence for African languages, investigating the models, data, and systems needed to build AI that understands, speaks, and serves the linguistic diversity of Africa.",
   openGraph: {
     title: "Research | Sauti Labs",
-    description: "Our research teams advance speech and language intelligence for African languages, investigating the models, data, and systems needed to build AI that understands, speaks, and serves the linguistic diversity of Africa.",
+    description:
+      "Our research teams advance speech and language intelligence for African languages, investigating the models, data, and systems needed to build AI that understands, speaks, and serves the linguistic diversity of Africa.",
     url: "https://sauti.ai/research",
   },
 };
@@ -24,12 +26,14 @@ export default function Research() {
     {
       href: "/research/speech-intelligence",
       title: "Speech Intelligence",
-      description: "Why speech AI struggles across African accents, languages and data gaps",
+      description:
+        "Why speech AI struggles across African accents, languages and data gaps",
     },
     {
       href: "/research/language-intelligence",
       title: "Language Intelligence",
-      description: "Poor representation of African languages in language models",
+      description:
+        "Poor representation of African languages in language models",
     },
     {
       href: "/research/language-resources",
@@ -39,31 +43,40 @@ export default function Research() {
     {
       href: "/research/model-intelligence",
       title: "Model Intelligence",
-      description: "Learning from limited data under real computing constraints",
+      description:
+        "Learning from limited data under real computing constraints",
     },
     {
       href: "/research/responsible-ai",
       title: "Responsible AI",
-      description: "Data governance, privacy, legal compliance, safety, accountability",
+      description:
+        "Data governance, privacy, legal compliance, safety, accountability",
     },
   ];
 
   return (
-    <div className="flex flex-col pt-16">
-      <div className="max-w-[1440px] mx-auto px-6 py-16 md:py-24">
-        {/* Header */}
-        <div className="max-w-3xl mb-12">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-            Research
-          </h1>
-          <p className="text-lg text-[var(--color-slate)] leading-relaxed">
-            Our research teams advance speech and language intelligence for African languages, investigating the models, data, and systems needed to build AI that understands, speaks, and serves the linguistic diversity of Africa.
-          </p>
+    <div className="flex flex-col pt-8">
+      <div className="max-w-[1440px] w-full mx-auto px-6 py-12 md:py-16">
+        {/* Header - Equal 50/50 Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-12 md:mb-16">
+          <div className="lg:col-span-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight text-[var(--color-text,#0f172a)]">
+              Research
+            </h1>
+          </div>
+          <div className="lg:col-span-6">
+            <p className="text-xl md:text-2xl text-[var(--color-slate,#475569)] leading-relaxed font-normal">
+              Our research teams advance speech and language intelligence for
+              African languages, investigating the models, data, and systems
+              needed to build AI that understands, speaks, and serves the
+              linguistic diversity of Africa.
+            </p>
+          </div>
         </div>
 
         {/* Team Navigation */}
-        <nav className="mb-16 overflow-x-auto">
-          <div className="flex gap-8 border-b">
+        <nav className="mb-12 overflow-x-auto">
+          <div className="flex gap-8 border-b border-[var(--color-border,#e2e8f0)] pb-1">
             {teams.map((team) => (
               <Link
                 key={team.href}
@@ -82,12 +95,12 @@ export default function Research() {
             <Link
               key={card.href}
               href={card.href}
-              className="group p-8 border hover:border-[var(--color-teal-600)] transition-colors"
+              className="group p-8 border border-[var(--color-border,#e2e8f0)] hover:border-[var(--color-teal-600)] transition-colors rounded-lg"
             >
               <h2 className="text-xl font-heading font-semibold mb-3 group-hover:text-[var(--color-teal-600)] transition-colors">
                 {card.title}
               </h2>
-              <p className="text-[var(--color-slate)] mb-4">
+              <p className="text-[var(--color-slate,#475569)] mb-6 leading-relaxed">
                 {card.description}
               </p>
               <span className="inline-flex items-center text-sm font-medium text-[var(--color-teal-600)]">
