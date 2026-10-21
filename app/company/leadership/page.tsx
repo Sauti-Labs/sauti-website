@@ -16,7 +16,7 @@ export default function Leadership() {
     name: "Bernard Abuto",
     title: "Founder, CEO & Chief Research Officer",
     image: "/leadership/bernard.jpeg",
-    bio: "Owns organisational vision, research direction, long-term technical strategy, research programmes, scientific standards, strategic partnerships, organisational representation, and major technical and strategic decisions.",
+    bio: "Bernard Abuto Otieno is the founder and Chief Executive Officer of Sauti Labs, where he leads the company's research direction and long-term vision for African speech and language technology. His work focuses on the intersection of machine learning research and AI systems engineering, with an emphasis on building, optimising, and deploying language technologies for African languages. He is driven by the goal of advancing the research, models, datasets, and systems needed to make speech and language AI more capable, accessible, and useful across Africa."
   };
 
   const executives = [
@@ -24,29 +24,29 @@ export default function Leadership() {
       id: 1,
       name: "Daisy Oduor",
       title: "Co-Founder & Chief Operating Officer",
-      image: "/images/leadership/daisy-oduor.jpg",
-      bio: "Owns organisational operations, internal coordination, people operations, programme execution, organisational processes, operational planning, hiring operations, and internal communication to ensure Sauti Labs can execute what it decides to build.",
+      image: "/leadership/daisy.jpeg",
+      bio: "Daisy Oduor leads operational coordination at Sauti Labs, helping translate the company's strategic priorities into structured execution. Her background spans full-stack software development, cloud infrastructure, and the development of scalable digital applications, with experience across modern web technologies and AI-related systems. She brings an engineering perspective to the operational challenges of building an AI company, connecting technical development with the coordination, processes, and organizational foundations needed to sustain it. As COO, Daisy helps shape the operational direction that enables Sauti Labs to advance its speech and language technologies and build products that better represent Africa's linguistic diversity.",
     },
     {
       id: 2,
       name: "Brian Noel",
       title: "Chief Technology Officer",
-      image: "/images/leadership/brian-noel.jpg",
-      bio: "Leads software engineering, system architecture, platform engineering, infrastructure, backend systems, APIs, developer infrastructure, and production reliability.",
+      image: "/leadership/noel.jpeg",
+      bio: "Brian Noel leads technology and engineering at Sauti Labs, overseeing the architectural direction and technical foundations of the company's AI platform. His work encompasses AI systems engineering, software architecture, backend infrastructure, and the engineering of reliable, scalable systems for speech and language technology. He focuses on translating research objectives into robust technical implementations, ensuring that models, services, and supporting infrastructure work together as cohesive, production-ready systems. As CTO, Brian is responsible for shaping the engineering decisions and technical standards that underpin Sauti Labs' products, research capabilities, and long-term technology roadmap. ",
     },
     {
       id: 3,
       name: "Godrick Narman Mwani",
       title: "Chief Machine Learning Officer",
-      image: "/images/leadership/godrick-narman.jpg",
-      bio: "Drives machine learning strategy, model development, ML architecture, training, experimentation, ML systems, model optimisation, and evaluation technical standards.",
+      image: "/leadership/namaan.jpeg",
+      bio: " Godrick Narman Mwani leads machine learning at Sauti Labs, shaping the development of intelligent systems and the technical direction of the company's machine learning capabilities. His work sits at the intersection of machine learning, AI engineering, and software architecture, with a focus on translating research and technical ideas into robust, practical AI systems. At Sauti Labs, he contributes to building AI technologies designed to address real-world challenges and advance the capabilities of African speech and language technology.",
     },
     {
       id: 4,
       name: "Barry Yaola Shroldder",
       title: "Chief Legal Officer",
-      image: "/images/leadership/barry-yaola.jpg",
-      bio: "Oversees legal strategy, regulatory compliance, intellectual property protection, data governance policies, licensing frameworks, and corporate legal affairs across all jurisdictions.",
+      image: "/leadership/barry.jpeg",
+      bio: "Shroldder Barry Yaola leads legal, responsible AI, and governance initiatives at Sauti Labs, focusing on the legal and institutional frameworks shaping the development and deployment of emerging technologies. His areas of expertise and research interest include technology law, intellectual property, AI governance, data protection, digital rights, and technology policy, with particular attention to the challenges and opportunities these fields present across Africa. Having undertaken intellectual property training through the World Intellectual Property Organization (WIPO) and participated in the Millennium Fellowship, Barry is committed to advancing responsible innovation grounded in sound legal frameworks, accountability, and the protection of rights in an increasingly AI-driven world.",
     },
   ];
 
