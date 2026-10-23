@@ -1,14 +1,15 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Metadata } from "next";
+
+const researchDescription =
+  "Our research teams advance speech and language intelligence for African languages, combining research, data, and engineering to develop the models, methods, and technologies needed to understand, generate, and support communication across Africa's linguistic diversity.";
 
 export const metadata: Metadata = {
   title: "Research",
-  description:
-    "Our research teams advance speech and language intelligence for African languages, investigating the models, data, and systems needed to build AI that understands, speaks, and serves the linguistic diversity of Africa.",
+  description: researchDescription,
   openGraph: {
     title: "Research | Sauti Labs",
-    description:
-      "Our research teams advance speech and language intelligence for African languages, investigating the models, data, and systems needed to build AI that understands, speaks, and serves the linguistic diversity of Africa.",
+    description: researchDescription,
     url: "https://sauti.ai/research",
   },
 };
@@ -19,31 +20,31 @@ export default function Research() {
       href: "/research/speech-intelligence",
       title: "Speech Intelligence",
       description:
-        "The Speech Intelligence team researches the models and systems that enable machines to understand and generate African speech, advancing speech recognition, synthesis, voice technologies, and robust multilingual speech processing.",
+        "The Speech Intelligence team advances the models and systems that enable machines to recognise, understand, and generate African speech, spanning speech recognition, synthesis, voice technologies, and multilingual speech processing.",
     },
     {
       href: "/research/language-intelligence",
       title: "Language Intelligence",
       description:
-        "The Language Intelligence team develops and studies AI systems that understand, process, and generate African languages, advancing multilingual language modeling, natural language understanding, and generation across diverse linguistic contexts.",
+        "The Language Intelligence team advances AI capabilities for understanding, processing, and generating African languages, including multilingual language modelling, natural language understanding, and text generation across diverse linguistic contexts.",
     },
     {
       href: "/research/language-resources",
       title: "Language Resources",
       description:
-        "The Language Resources team builds the datasets, corpora, benchmarks, and linguistic resources needed to develop and evaluate AI for African languages, with an emphasis on data quality, coverage, and research reproducibility. ",
+        "The Language Resources team develops and curates datasets, corpora, benchmarks, and linguistic resources that support the development and evaluation of African language AI, with an emphasis on data quality, coverage, documentation, and reproducibility.",
     },
     {
       href: "/research/model-intelligence",
       title: "Model Intelligence",
       description:
-        "The Model Intelligence team investigates how to train, evaluate, optimize, and deploy capable AI models, advancing architectures, learning methods, and efficient systems for speech and language tasks. ",
+        "The Model Intelligence team explores model architectures, training and adaptation methods, evaluation, and optimisation to improve the capability, efficiency, and deployability of AI models for speech and language tasks.",
     },
     {
       href: "/research/responsible-ai",
       title: "Responsible AI",
       description:
-        "The Responsible AI team investigates the safety, fairness, robustness, and societal implications of AI for African languages, developing approaches that support trustworthy systems and responsible deployment across diverse communities. ",
+        "The Responsible AI team examines safety, fairness, privacy, robustness, and the societal implications of AI for African languages, helping shape approaches to building, evaluating, and deploying trustworthy systems across diverse communities.",
     },
   ];
 
@@ -59,10 +60,7 @@ export default function Research() {
           </div>
           <div className="lg:col-span-6">
             <p className="text-xl md:text-2xl text-[var(--color-slate,#475569)] leading-relaxed font-normal">
-              Our research teams advance speech and language intelligence for
-              African languages, investigating the models, data, and systems
-              needed to build AI that understands, speaks, and serves the
-              linguistic diversity of Africa.
+              {researchDescription}
             </p>
           </div>
         </div>
