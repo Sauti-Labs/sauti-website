@@ -31,21 +31,27 @@ export function ScrollWaveCta() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.15 }
+      { threshold: 0.6 }
     );
 
     if (containerRef.current) observer.observe(containerRef.current);
     return () => observer.disconnect();
   }, []);
 
+  const wasVisibleRef = useRef(false);
+
   useEffect(() => {
-    if (videoRef.current) {
-      if (isVisible) {
-        videoRef.current.play().catch(() => {});
-      } else {
-        videoRef.current.pause();
-      }
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isVisible && !wasVisibleRef.current) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    } else if (!isVisible && wasVisibleRef.current) {
+      video.pause();
     }
+
+    wasVisibleRef.current = isVisible;
   }, [isVisible]);
 
   return (
@@ -61,9 +67,7 @@ export function ScrollWaveCta() {
         {/* Background Video */}
         <video
           ref={videoRef}
-          src="/dhonam.mp4"
-          autoPlay
-          loop
+          src="/Sauti-trailer.mp4"
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
@@ -80,37 +84,18 @@ export function ScrollWaveCta() {
         />
 
         {/* Content Container (z-30 ensures top layer over scrims) */}
-        <div className="relative z-30 max-w-2xl space-y-5">
-        
-
-          <motion.h2 
-            initial={{ opacity: 0, y: 15 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-2xl sm:text-4xl md:text-5xl font-heading font-bold text-color-mist leading-tight tracking-tight"
-          >
-            Introducing Dhonam 1.0
-          </motion.h2>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 15 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-sm sm:text-lg md:text-xl font-serif leading-relaxed text-color-mist/85"
-          >
-            The Dholuo ASR.
-          </motion.p>
+        <div className="absolute inset-x-0 bottom-3 md:bottom-5 z-30 flex justify-center px-4">
 
           {/* Explicitly position and style the Read More button */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="pt-3"
+            className="flex justify-center"
           >
             <Link
               href="/about"
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ivory text-ink hover:bg-white font-heading font-medium text-sm transition-all duration-300 shadow-xl cursor-pointer hover:gap-3"
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-ink hover:bg-stone-100 font-heading font-medium text-sm transition-all duration-300 shadow-xl cursor-pointer hover:gap-3"
             >
               <span>Read More</span>
               <svg 

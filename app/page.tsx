@@ -53,11 +53,11 @@ export default function Home() {
             </Reveal>
 
             {/* Right: description */}
-            <Reveal delay={0.12}>
+            <Reveal delay={0.12} className="lg:translate-y-[19px] lg:translate-x-[32px]">
               <p className="max-w-md font-serif text-body-lg text-muted">
-                Sauti Labs is an African-language AI company building the research, models,
-                data and technologies needed to help AI understand, speak and serve
-                Africa&apos;s linguistic diversity.
+                Sauti Labs is an AI research and products company building models and
+                technologies that enable machines to understand and generate speech
+                across Africa&apos;s linguistic diversity.
               </p>
             </Reveal>
           </div>
