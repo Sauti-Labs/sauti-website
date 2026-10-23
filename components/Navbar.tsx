@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import logo from "@/public/sauti-logo-mark.jpeg";
+import logo from "@/public/sauti-logo-white.jpeg";
 import {
   navGroups,
   homeLink,
@@ -16,7 +16,7 @@ import {
 } from "@/content/navigation";
 
 // Set to false if the logo image already contains the "Sauti Labs" name
-const SHOW_WORDMARK_TEXT = true;
+const SHOW_WORDMARK_TEXT = false;
 
 const matches = (pathname: string, link: NavLink) =>
   link.exact
@@ -291,7 +291,7 @@ function NavbarContents({ pathname }: { pathname: string }) {
             aria-label="Sauti Labs — home"
             className="flex items-center gap-2.5 font-sans text-lg font-bold tracking-tight text-text hover:text-link"
           >
-            <Image src={logo} alt="" priority className="h-8 w-auto rounded" />
+            <Image src={logo} alt="" priority className="h-16 w-auto rounded" />
             {SHOW_WORDMARK_TEXT && <span aria-hidden="true">SAUTI LABS</span>}
           </Link>
 
@@ -406,3 +406,6 @@ export function Navbar() {
   const pathname = usePathname();
   return <NavbarContents key={pathname} pathname={pathname} />;
 }
+
+
+
