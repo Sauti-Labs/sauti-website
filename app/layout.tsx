@@ -79,7 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     url: "https://sauti.ai",
     logo: {
       "@type": "ImageObject",
-      url: "https://sauti.ai/sauti-logo1.png",
+      url: "https://sauti.ai/sauti-logo-mark.jpeg",
       width: 200,
       height: 200,
     },
