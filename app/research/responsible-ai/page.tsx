@@ -14,14 +14,6 @@ export const metadata: Metadata = {
   },
 };
 
-const teams = [
-  { href: "/research/speech-intelligence", label: "Speech Intelligence" },
-  { href: "/research/language-intelligence", label: "Language Intelligence" },
-  { href: "/research/language-resources", label: "Language Resources" },
-  { href: "/research/model-intelligence", label: "Model Intelligence" },
-  { href: "/research/responsible-ai", label: "Responsible AI" },
-];
-
 export default function ResponsibleAI() {
   return (
     <div className="flex flex-col pt-8">
