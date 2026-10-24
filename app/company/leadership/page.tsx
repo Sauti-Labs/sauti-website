@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 type Leader = {
   name: string;
   title: string;
+  linkedin: string;
   image: string;
   bio: string;
 };
@@ -23,12 +24,14 @@ const founders: Leader[] = [
   {
     name: "Bernard Abuto",
     title: "Founder, CEO & Chief Research Officer",
+    linkedin: "https://www.linkedin.com/in/bernard-abuto-888207343/",
     image: "/leadership/bernard.jpeg",
     bio: "Bernard Abuto Otieno is the founder and Chief Executive Officer of Sauti Labs, where he directs the company’s research agenda, strategic vision, and long-term development. His work centres on machine learning research and AI systems engineering, with a focus on the development, optimisation, and deployment of speech and language technologies. He is particularly interested in the research, models, datasets, and systems required to advance language technology across Africa’s linguistic landscape.",
   },
   {
     name: "Daisy Oduor",
     title: "Co-Founder & Chief Operating Officer",
+    linkedin: "https://www.linkedin.com/in/daisyoduor/",
     image: "/leadership/daisy.jpeg",
     bio: "Daisy Oduor leads operations at Sauti Labs, translating the company’s strategic priorities into coordinated execution. Her technical background spans full-stack software development, cloud infrastructure, and scalable digital applications, giving her an engineering perspective on the operational demands of building an AI company. As COO, she oversees operational coordination and helps establish the processes and organisational foundations that support the company’s research, engineering, and development efforts.",
   },
@@ -38,18 +41,21 @@ const executives: Leader[] = [
   {
     name: "Brian Noel",
     title: "Chief Technology Officer",
+    linkedin: "https://www.linkedin.com/in/brian-noel-20443031b/",
     image: "/leadership/noel.jpeg",
     bio: "Brian Noel leads technology and engineering at Sauti Labs, directing the architectural decisions and technical foundations that shape the company’s systems. His areas of focus include AI systems engineering, software architecture, backend infrastructure, and the development of reliable, scalable software. As CTO, he works to translate technical objectives into robust implementations, establish sound engineering practices, and ensure that the company’s models, services, and supporting infrastructure can function as cohesive systems.",
   },
   {
     name: "Godrick Narman Mwani",
     title: "Chief Machine Learning Officer",
+    linkedin: "https://www.linkedin.com/in/godrick-mwani/",
     image: "/leadership/namaan.jpeg",
     bio: "Godrick Narman Mwani leads machine learning at Sauti Labs, contributing to the direction and development of the company’s machine learning capabilities. His work spans machine learning, AI engineering, and software architecture, with an emphasis on translating technical concepts and research ideas into practical systems. He focuses on the development of machine learning technologies that address real-world challenges and strengthen the capabilities of speech and language applications.",
   },
   {
     name: "Barry Yaola Shroldder",
     title: "Chief Legal Officer",
+    linkedin: "https://www.linkedin.com/in/shroldder-yaola-b1b461249/",
     image: "/leadership/barry.jpeg",
     bio: "Barry Yaola Shroldder leads legal, responsible AI, and governance initiatives at Sauti Labs. His interests span technology law, intellectual property, AI governance, data protection, digital rights, and technology policy, particularly as these fields shape the development and deployment of emerging technologies across Africa. His experience includes intellectual property training through the World Intellectual Property Organization (WIPO) and participation in the Millennium Fellowship. At Sauti Labs, he focuses on the legal frameworks, governance practices, and accountability principles needed to support responsible technological development and protect individual rights.",
   },
@@ -74,9 +80,23 @@ function FounderCard({ leader }: { leader: Leader }) {
           {leader.title}
         </p>
 
-        <h3 className="mt-2 break-words font-heading text-xl font-semibold tracking-tight sm:text-2xl lg:text-3xl">
-          {leader.name}
-        </h3>
+        <div className="mt-2 flex min-w-0 items-center gap-3">
+          <h3 className="break-words font-heading text-xl font-semibold tracking-tight sm:text-2xl lg:text-3xl">
+            {leader.name}
+          </h3>
+          <a
+            href={leader.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${leader.name}'s LinkedIn profile`}
+            title={`${leader.name} on LinkedIn`}
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[#0A66C2] transition-colors hover:bg-[#0A66C2]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A66C2]"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current" fill="currentColor">
+  <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.34 18.34H4.36V9h2.98v9.34ZM5.85 7.72a1.73 1.73 0 1 1 0-3.46 1.73 1.73 0 0 1 0 3.46Zm12.49 10.62h-2.97v-4.55c0-1.09-.02-2.49-1.52-2.49-1.52 0-1.75 1.19-1.75 2.41v4.63H9.13V9h2.85v1.28h.04c.4-.75 1.37-1.53 2.82-1.53 3.01 0 3.57 1.98 3.57 4.56v5.03h-.07Z"/>
+</svg>
+          </a>
+        </div>
 
 
         <Biography bio={leader.bio} />
@@ -103,9 +123,23 @@ function ExecutiveCard({ leader }: { leader: Leader }) {
           {leader.title}
         </p>
 
-        <h3 className="mt-2 break-words font-heading text-xl font-semibold tracking-tight sm:text-2xl">
-          {leader.name}
-        </h3>
+        <div className="mt-2 flex min-w-0 items-center gap-3">
+          <h3 className="break-words font-heading text-xl font-semibold tracking-tight sm:text-2xl">
+            {leader.name}
+          </h3>
+          <a
+            href={leader.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${leader.name}'s LinkedIn profile`}
+            title={`${leader.name} on LinkedIn`}
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[#0A66C2] transition-colors hover:bg-[#0A66C2]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A66C2]"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current" fill="currentColor">
+  <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.34 18.34H4.36V9h2.98v9.34ZM5.85 7.72a1.73 1.73 0 1 1 0-3.46 1.73 1.73 0 0 1 0 3.46Zm12.49 10.62h-2.97v-4.55c0-1.09-.02-2.49-1.52-2.49-1.52 0-1.75 1.19-1.75 2.41v4.63H9.13V9h2.85v1.28h.04c.4-.75 1.37-1.53 2.82-1.53 3.01 0 3.57 1.98 3.57 4.56v5.03h-.07Z"/>
+</svg>
+          </a>
+        </div>
 
 
         <div className="mt-auto">
