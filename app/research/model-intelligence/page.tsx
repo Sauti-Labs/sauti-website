@@ -1,31 +1,19 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { cn } from "@/lib/utils";
+import ModelResearchAreas from "./ModelResearchAreas";
 
 export const metadata: Metadata = {
   title: "Model Intelligence",
-  description: "Learning from limited data under real computing constraints.",
+  description: "Research into model training and adaptation, performance evaluation, and computational efficiency for African languages.",
   openGraph: {
     title: "Model Intelligence | Sauti Labs",
-    description: "Learning from limited data under real computing constraints.",
+    description: "Research into model training and adaptation, performance evaluation, and computational efficiency for African languages.",
     url: "https://sauti.ai/research/model-intelligence",
   },
 };
 
 export default function ModelIntelligence() {
-  const teams = [
-    { href: "/research/speech-intelligence", label: "Speech Intelligence" },
-    { href: "/research/language-intelligence", label: "Language Intelligence" },
-    { href: "/research/language-resources", label: "Language Resources" },
-    { href: "/research/model-intelligence", label: "Model Intelligence" },
-    { href: "/research/responsible-ai", label: "Responsible AI" },
-  ];
 
-  const researchAreas = [
-    "Learning from limited data",
-    "Understanding and improving model performance",
-    "Making models efficient and deployable",
-  ];
 
   return (
     <div className="flex flex-col pt-8">
@@ -37,52 +25,51 @@ export default function ModelIntelligence() {
           </Link>
           <span className="mx-2 text-[var(--color-slate)]">/</span>
           <span className="font-medium">Model Intelligence</span>
-        </nav>
-
-        {/* Header - Equal 50/50 Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-12 md:mb-16">
+        </nav>        {/* Header */}
+        <div className="mb-12 grid grid-cols-1 items-start gap-8 md:mb-16 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight text-[var(--color-text,#0f172a)]">
+            <h1 className="font-heading text-5xl font-bold tracking-tight text-[var(--color-text,#0f172a)] md:text-6xl lg:text-7xl">
               Model Intelligence
             </h1>
           </div>
+
           <div className="lg:col-span-6">
-            <p className="text-xl md:text-2xl text-[var(--color-slate,#475569)] leading-relaxed font-normal">
-              Learning from limited data under real computing constraints.
+            <p className="text-xl font-normal leading-relaxed text-[var(--color-slate,#475569)] md:text-2xl">
+              Model performance depends on more than the size of a model or the volume of its training data. Many African languages face limited training resources, evaluation benchmarks, and computing infrastructure, creating challenges for developing reliable and efficient language technologies. The Model Intelligence team researches model training and adaptation, performance evaluation, and computational efficiency to advance models that work effectively across African languages and can be deployed under practical resource constraints.
+            </p>
+
+            <p className="mt-5 text-base leading-relaxed text-[var(--color-slate,#475569)] md:text-lg">
+              <span className="font-semibold">Research teams:</span>{" "}
+              <Link href="/research/speech-intelligence" className="underline underline-offset-4 hover:text-[var(--color-teal-600)]">
+                Speech Intelligence
+              </Link>
+              {" · "}
+              <Link href="/research/language-intelligence" className="underline underline-offset-4 hover:text-[var(--color-teal-600)]">
+                Language Intelligence
+              </Link>
+              {" · "}
+              <Link href="/research/language-resources" className="underline underline-offset-4 hover:text-[var(--color-teal-600)]">
+                Language Resources
+              </Link>
+              {" · "}
+              <Link href="/research/model-intelligence" className="underline underline-offset-4 hover:text-[var(--color-teal-600)]">
+                Model Intelligence
+              </Link>
+              {" · "}
+              <Link href="/research/responsible-ai" className="underline underline-offset-4 hover:text-[var(--color-teal-600)]">
+                Responsible AI
+              </Link>
             </p>
           </div>
         </div>
 
-        {/* Team Navigation */}
-        <nav className="mb-12 overflow-x-auto">
-          <div className="flex gap-8 border-b border-[var(--color-border,#e2e8f0)] pb-1">
-            {teams.map((team) => (
-              <Link
-                key={team.href}
-                href={team.href}
-                className={cn(
-                  "pb-4 text-sm font-medium whitespace-nowrap transition-colors",
-                  team.href === "/research/model-intelligence"
-                    ? "font-semibold border-b-2 border-[var(--color-teal-600)]"
-                    : "hover:text-[var(--color-teal-600)]"
-                )}
-              >
-                {team.label}
-              </Link>
-            ))}
-          </div>
-        </nav>
+        <div
+          className="mx-4 border-t-2 border-neutral-950 md:mx-8"
+          aria-hidden="true"
+        />
 
-        {/* Research Areas */}
-        <div className="space-y-8">
-          {researchAreas.map((area) => (
-            <div key={area} className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-b border-[var(--color-border,#e2e8f0)]">
-              <h2 className="text-xl font-heading font-semibold md:col-span-1">
-                {area}
-              </h2>
-            </div>
-          ))}
-        </div>
+        <ModelResearchAreas />
+
       </div>
     </div>
   );
