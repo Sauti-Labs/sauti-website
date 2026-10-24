@@ -46,42 +46,31 @@ export default function ResponsibleAI() {
 
           <div className="lg:col-span-6">
             <p className="text-xl md:text-2xl text-[var(--color-slate,#475569)] leading-relaxed font-normal">
-              We explore how speech and language technologies can be developed,
-              evaluated and deployed responsibly across Africa&apos;s diverse
-              linguistic and social contexts.
-            </p>
-
-            <p className="mt-5 text-base md:text-lg text-[var(--color-slate,#475569)] leading-relaxed">
-              As AI systems become capable of recognising speech, generating
-              voices and interacting with people, technical performance is only
-              part of the problem. We investigate where systems fail, who bears
-              the consequences, how data is used, and what safeguards are
-              appropriate before a capability reaches the world.
-            </p>
-
-            <p className="mt-5 text-base md:text-lg text-[var(--color-slate,#475569)] leading-relaxed">
-              At Sauti Labs, responsible AI is a research and engineering
-              consideration throughout the AI lifecycle—from data sourcing and model development to evaluation, release and deployment.
+              As speech and language technologies become more capable, ensuring
+              that they are developed and deployed responsibly becomes
+              increasingly important. AI systems that recognise speech, generate
+              voices, and interact with people raise questions that extend beyond
+              technical performance, including fairness, consent, data governance,
+              and the consequences of system failures. The Responsible AI team
+              investigates these challenges across Africa’s diverse linguistic
+              and social contexts, examining where systems fail, who bears the
+              consequences, how data is used, and what safeguards are needed. Its
+              research considers responsibility throughout the AI lifecycle, from
+              data sourcing and model development to evaluation, release, and
+              deployment.
             </p>
 
             <p className="mt-5 text-base md:text-lg text-[var(--color-slate,#475569)] leading-relaxed">
               <span className="font-semibold">Research teams:</span>{" "}
-              {teams.map((team, index) => (
-                <span key={team.href}>
-                  {index > 0 && "·"}
-                  <Link
-                    href={team.href}
-                    aria-current={
-                      team.href === "/research/responsible-ai"
-                        ? "page"
-                        : undefined
-                    }
-                    className="underline underline-offset-4 hover:text-[var(--color-teal-600)]"
-                  >
-                    {team.label}
-                  </Link>
-                </span>
-              ))}
+              <Link href="/research/speech-intelligence" className="underline underline-offset-4 hover:text-[var(--color-teal-600)]">Speech Intelligence</Link>
+              {" \u00B7 "}
+              <Link href="/research/language-intelligence" className="underline underline-offset-4 hover:text-[var(--color-teal-600)]">Language Intelligence</Link>
+              {" \u00B7 "}
+              <Link href="/research/language-resources" className="underline underline-offset-4 hover:text-[var(--color-teal-600)]">Language Resources</Link>
+              {" \u00B7 "}
+              <Link href="/research/model-intelligence" className="underline underline-offset-4 hover:text-[var(--color-teal-600)]">Model Intelligence</Link>
+              {" \u00B7 "}
+              <Link href="/research/responsible-ai" aria-current="page" className="underline underline-offset-4 hover:text-[var(--color-teal-600)]">Responsible AI</Link>
             </p>
           </div>
         </div>
