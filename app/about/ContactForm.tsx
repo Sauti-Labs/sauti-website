@@ -10,6 +10,8 @@ const labelClass =
 
 export default function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
+  const [enquiryType, setEnquiryType] = useState("");
+  const [roleOfInterest, setRoleOfInterest] = useState("");
   const [status, setStatus] = useState<{
     type: "success" | "error";
     message: string;
@@ -28,6 +30,7 @@ export default function ContactForm() {
       email: String(data.get("email") ?? "").trim(),
       organisation: String(data.get("organisation") ?? "").trim(),
       enquiryType: String(data.get("enquiryType") ?? ""),
+      roleOfInterest: String(data.get("roleOfInterest") ?? ""),
       message: String(data.get("message") ?? "").trim(),
       website: String(data.get("website") ?? ""),
     };
@@ -145,7 +148,14 @@ export default function ContactForm() {
               id="contact-type"
               name="enquiryType"
               required
-              defaultValue=""
+              value={enquiryType}
+              onChange={(event) => {
+                const value = event.target.value;
+                setEnquiryType(value);
+                if (value !== "Working With Us") {
+                  setRoleOfInterest("");
+                }
+              }}
               className={fieldClass}
             >
               <option value="" disabled>
@@ -162,6 +172,61 @@ export default function ContactForm() {
               <option value="Other">Other</option>
             </select>
           </div>
+
+          {enquiryType === "Working With Us" && (
+            <div>
+              <label htmlFor="contact-role" className={labelClass}>
+                Role of interest <span aria-hidden="true">*</span>
+              </label>
+              <select
+                id="contact-role"
+                name="roleOfInterest"
+                required
+                value={roleOfInterest}
+                onChange={(event) => setRoleOfInterest(event.target.value)}
+                className={fieldClass}
+              >
+                <option value="" disabled>
+                  Select a role
+                </option>
+                <option value="Machine Learning Researcher">Machine Learning Researcher</option>
+                <option value="Speech Researcher">Speech Researcher</option>
+                <option value="Natural Language Processing Researcher">Natural Language Processing Researcher</option>
+                <option value="Model Evaluation Researcher">Model Evaluation Researcher</option>
+                <option value="Machine Learning Engineer">Machine Learning Engineer</option>
+                <option value="AI Systems Engineer">AI Systems Engineer</option>
+                <option value="ML Infrastructure Engineer">ML Infrastructure Engineer</option>
+                <option value="Backend Engineer">Backend Engineer</option>
+                <option value="Frontend Engineer">Frontend Engineer</option>
+                <option value="Full-Stack Engineer">Full-Stack Engineer</option>
+                <option value="Software Quality & Testing Engineer">Software Quality & Testing Engineer</option>
+                <option value="Language Data Engineer">Language Data Engineer</option>
+                <option value="Dataset & Corpus Curator">Dataset & Corpus Curator</option>
+                <option value="African Language Specialist">African Language Specialist</option>
+                <option value="Computational Linguist">Computational Linguist</option>
+                <option value="Speech Data Researcher">Speech Data Researcher</option>
+                <option value="Data Annotation & Quality Specialist">Data Annotation & Quality Specialist</option>
+                <option value="Product Designer">Product Designer</option>
+                <option value="UI/UX Researcher">UI/UX Researcher</option>
+                <option value="Product Engineer">Product Engineer</option>
+                <option value="Developer Experience Engineer">Developer Experience Engineer</option>
+                <option value="Technical Writer">Technical Writer</option>
+                <option value="Accessibility Specialist">Accessibility Specialist</option>
+                <option value="Responsible AI Researcher">Responsible AI Researcher</option>
+                <option value="AI Governance & Policy Researcher">AI Governance & Policy Researcher</option>
+                <option value="Research Communications Contributor">Research Communications Contributor</option>
+                <option value="Scientific & Technical Editor">Scientific & Technical Editor</option>
+                <option value="Community & Partnerships Contributor">Community & Partnerships Contributor</option>
+                <option value="Research Operations Coordinator">Research Operations Coordinator</option>
+                <option value="People & Talent Contributor">People & Talent Contributor</option>
+                <option value="Legal & Governance Research Contributor">Legal & Governance Research Contributor</option>
+              </select>
+              <p className="mt-2 text-sm text-[var(--color-muted,#64748b)]">
+                Choose the role you are interested in. You can explain your
+                experience and interests in the message below.
+              </p>
+            </div>
+          )}
 
           <div>
             <label htmlFor="contact-message" className={labelClass}>
@@ -220,3 +285,4 @@ export default function ContactForm() {
     </section>
   );
 }
+

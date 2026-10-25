@@ -9,6 +9,40 @@ const allowedTypes = new Set([
   "Partnership Opportunity",
   "Other",
 ]);
+const allowedRoles = new Set([
+  "Machine Learning Researcher",
+  "Speech Researcher",
+  "Natural Language Processing Researcher",
+  "Model Evaluation Researcher",
+  "Machine Learning Engineer",
+  "AI Systems Engineer",
+  "ML Infrastructure Engineer",
+  "Backend Engineer",
+  "Frontend Engineer",
+  "Full-Stack Engineer",
+  "Software Quality & Testing Engineer",
+  "Language Data Engineer",
+  "Dataset & Corpus Curator",
+  "African Language Specialist",
+  "Computational Linguist",
+  "Speech Data Researcher",
+  "Data Annotation & Quality Specialist",
+  "Product Designer",
+  "UI/UX Researcher",
+  "Product Engineer",
+  "Developer Experience Engineer",
+  "Technical Writer",
+  "Accessibility Specialist",
+  "Responsible AI Researcher",
+  "AI Governance & Policy Researcher",
+  "Research Communications Contributor",
+  "Scientific & Technical Editor",
+  "Community & Partnerships Contributor",
+  "Research Operations Coordinator",
+  "People & Talent Contributor",
+  "Legal & Governance Research Contributor",
+]);
+
 
 function plainText(value: string) {
   return value.replace(/\r\n/g, "\n").trim();
@@ -36,6 +70,10 @@ export async function POST(request: Request) {
         : "";
     const enquiryType =
       typeof body.enquiryType === "string" ? body.enquiryType : "";
+    const roleOfInterest =
+      typeof body.roleOfInterest === "string"
+        ? plainText(body.roleOfInterest)
+        : "";
     const message =
       typeof body.message === "string" ? plainText(body.message) : "";
 
@@ -47,6 +85,8 @@ export async function POST(request: Request) {
       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
       organisation.length > 160 ||
       !allowedTypes.has(enquiryType) ||
+      (enquiryType === "Working With Us" && !allowedRoles.has(roleOfInterest)) ||
+      (enquiryType !== "Working With Us" && roleOfInterest !== "") ||
       message.length < 10 ||
       message.length > 5000
     ) {
@@ -81,6 +121,9 @@ export async function POST(request: Request) {
       `Email: ${email}`,
       `Organisation: ${organisation || "Not provided"}`,
       `Enquiry type: ${enquiryType}`,
+      ...(enquiryType === "Working With Us"
+        ? [`Role of interest: ${roleOfInterest}`]
+        : []),
       "",
       "Message:",
       message,
@@ -130,3 +173,4 @@ export async function POST(request: Request) {
     );
   }
 }
+
