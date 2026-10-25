@@ -44,7 +44,7 @@ function CtaButton({ className }: { className?: string }) {
   if (!cta.href) return null;
 
   const classes = cn(
-    "inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-sun px-5 font-sans text-ui font-medium text-teal-900 transition-colors duration-200 hover:bg-sun-deep hover:text-white",
+    "inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[var(--color-teal-600)] px-5 font-sans text-ui font-medium text-white transition-opacity duration-200 hover:opacity-90",
     className
   );
 

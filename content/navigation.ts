@@ -4,14 +4,13 @@ export type NavLink = { href: string; label: string; exact?: boolean };
 export type NavGroup = { id: string; label: string; items: NavLink[] };
 
 /**
- * The "Try Dhonam" label is a documented departure from the content spec,
- * which names this CTA "Try Sauti". See docs/content-change-requests.md.
+ * Primary call to action for Sauti Cloud.
  * If no destination is configured, the button is not rendered.
  */
 export const cta = {
-    label: "Try Dhonam",
-    href: process.env.NEXT_PUBLIC_DHONAM_URL ?? "",
-    external: true,
+    label: "Try Sauti Cloud",
+    href: "/cloud",
+    external: false,
 };
 
 export const homeLink: NavLink = { href: "/", label: "Home", exact: true };

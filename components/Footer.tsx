@@ -154,14 +154,23 @@ export function Footer() {
 
             {cta?.href && (
               <div>
-                <a
-                  href={cta.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block text-sm font-medium text-sun hover:text-white transition-colors"
-                >
-                  {cta.label} &rarr;
-                </a>
+                {cta.external ? (
+                  <a
+                    href={cta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block text-sm font-medium text-white hover:text-white transition-colors"
+                  >
+                    {cta.label} &rarr;
+                  </a>
+                ) : (
+                  <Link
+                    href={cta.href}
+                    className="inline-block text-sm font-medium text-white hover:text-white transition-colors"
+                  >
+                    {cta.label} &rarr;
+                  </Link>
+                )}
               </div>
             )}
           </div>
