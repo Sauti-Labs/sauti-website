@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { cta } from "@/content/navigation";
 import logo from "@/public/Sauti-logo-dark-background.jpg";
@@ -149,16 +149,6 @@ export function Footer() {
                     Careers
                   </Link>
                 </li>
-                <li>
-                  <Link href="/company/events" className="text-sm text-white hover:text-white transition-colors">
-                    Events
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/news" className="text-sm text-white hover:text-white transition-colors">
-                    News
-                  </Link>
-                </li>
               </ul>
             </div>
 
@@ -194,4 +184,5 @@ export function Footer() {
     </footer>
   );
 }
+
 

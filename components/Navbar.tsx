@@ -9,7 +9,6 @@ import logo from "@/public/sauti-logo-white.jpeg";
 import {
   navGroups,
   homeLink,
-  newsLink,
   cta,
   type NavGroup,
   type NavLink,
@@ -273,7 +272,6 @@ function NavbarContents({ pathname }: { pathname: string }) {
   }, [mobileOpen]);
 
   const homeCurrent = matches(pathname, homeLink);
-  const newsCurrent = matches(pathname, newsLink);
 
   return (
     <header
@@ -288,7 +286,7 @@ function NavbarContents({ pathname }: { pathname: string }) {
           {/* Logo and wordmark */}
           <Link
             href="/"
-            aria-label="Sauti Labs — home"
+            aria-label="Sauti Labs â€” home"
             className="flex items-center gap-2.5 font-sans text-lg font-bold tracking-tight text-text hover:text-link"
           >
             <Image src={logo} alt="" priority className="h-16 w-auto rounded" />
@@ -319,19 +317,6 @@ function NavbarContents({ pathname }: { pathname: string }) {
                 setOpen={setOpenMenu}
               />
             ))}
-            <Link
-              href={newsLink.href}
-              aria-current={newsCurrent ? "page" : undefined}
-              className={cn(
-                "relative flex min-h-11 items-center px-1 font-sans text-ui font-medium text-text transition-colors hover:text-link",
-                newsCurrent && "font-semibold"
-              )}
-            >
-              {newsLink.label}
-              {newsCurrent && (
-                <span aria-hidden="true" className="absolute inset-x-1 bottom-1 h-0.5 bg-current" />
-              )}
-            </Link>
             <CtaButton />
           </div>
 
@@ -385,16 +370,6 @@ function NavbarContents({ pathname }: { pathname: string }) {
           {navGroups.map((g) => (
             <MobileGroup key={g.id} group={g} pathname={pathname} />
           ))}
-          <Link
-            href={newsLink.href}
-            aria-current={newsCurrent ? "page" : undefined}
-            className={cn(
-              "flex min-h-12 items-center border-b border-border py-3 font-sans text-base font-medium text-text",
-              newsCurrent && "font-semibold"
-            )}
-          >
-            {newsLink.label}
-          </Link>
           <CtaButton className="mt-6 flex w-full min-[360px]:hidden" />
         </div>
       </nav>
