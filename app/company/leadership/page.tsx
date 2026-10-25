@@ -118,7 +118,7 @@ function ExecutiveCard({ leader }: { leader: Leader }) {
         />
       </div>
 
-      <div className="flex flex-1 flex-col pt-5">
+      <div className="flex flex-col pt-5">
         <p className="text-sm font-medium leading-relaxed text-[var(--color-slate)]">
           {leader.title}
         </p>
@@ -142,9 +142,7 @@ function ExecutiveCard({ leader }: { leader: Leader }) {
         </div>
 
 
-        <div className="mt-auto">
-          <Biography bio={leader.bio} />
-        </div>
+        <Biography bio={leader.bio} />
       </div>
     </article>
   );
