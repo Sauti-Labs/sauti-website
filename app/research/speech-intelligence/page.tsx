@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Speech Intelligence | Sauti Labs",
     description: "Sauti Labs researches speech recognition, speech generation, voice AI, and multilingual speech systems for African languages and accents.",
-    url: "https://sauti.ai/research/speech-intelligence",
+    url: "https://sautilabs.co.ke/research/speech-intelligence",
     images: [{ url: "/opengraph-image", alt: "Speech Intelligence research at Sauti Labs" }],
   },
 };

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Language Intelligence | Sauti Labs",
     description:
       "Research into multilingual language understanding, language generation, and the evaluation of language models across African languages.",
-    url: "https://sauti.ai/research/language-intelligence",
+    url: "https://sautilabs.co.ke/research/language-intelligence",
     images: [{ url: "/opengraph-image", alt: "Language Intelligence research at Sauti Labs" }],
   },
 };

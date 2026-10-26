@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Language Resources | Sauti Labs",
     description:
       "Sauti Labs develops documented speech and text datasets, corpora, benchmarks, and linguistic resources to support African-language AI research and evaluation.",
-    url: "https://sauti.ai/research/language-resources",
+    url: "https://sautilabs.co.ke/research/language-resources",
     images: [{ url: "/opengraph-image", alt: "African-language datasets and language resources at Sauti Labs" }],
   },
 };

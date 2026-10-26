@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Careers | Sauti Labs",
     description:
       "Explore research, machine learning, engineering, data, and product opportunities at Sauti Labs.",
-    url: "https://sauti.ai/company/careers",
+    url: "https://sautilabs.co.ke/company/careers",
     images: [{ url: "/opengraph-image", alt: "Careers at Sauti Labs" }],
   },
   twitter: {

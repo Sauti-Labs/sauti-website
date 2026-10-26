@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Sauti Labs - Building Speech and Language Intelligence for Africa",
     description:
       "Sauti Labs is an African AI research and technology organisation. We build the data, models, infrastructure and products that let machines understand and speak African languages.",
-    url: "https://sauti.ai",
+    url: "https://sautilabs.co.ke",
     images: [{ url: "/opengraph-image", alt: "Sauti Labs — African speech and language intelligence" }],
   },
   twitter: {

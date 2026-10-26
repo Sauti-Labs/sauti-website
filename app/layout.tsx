@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Sauti Labs" }],
   creator: "Sauti Labs",
   publisher: "Sauti Labs",
-  metadataBase: new URL("https://sauti.ai"),
+  metadataBase: new URL("https://sautilabs.co.ke"),
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://sauti.ai",
+    url: "https://sautilabs.co.ke",
     title: "Sauti Labs - Building Speech and Language Intelligence for Africa",
     description: "Sauti Labs is an African-language AI company building the research, models, data and technologies needed to help AI understand, speak and serve Africa's linguistic diversity.",
     siteName: "Sauti Labs",
@@ -86,11 +86,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://sauti.ai/#organization",
+        "@id": "https://sautilabs.co.ke/#organization",
         name: "Sauti Labs",
         description:
           "Sauti Labs is an African-language AI company building the research, models, data and technologies needed to help AI understand, speak and serve Africa's linguistic diversity.",
-        url: "https://sauti.ai/",
+        url: "https://sautilabs.co.ke/",
         sameAs: ["https://www.linkedin.com/company/sauti-labs"],
         knowsAbout: [
           "African languages",
@@ -102,17 +102,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         ],
         logo: {
           "@type": "ImageObject",
-          url: "https://sauti.ai/android-chrome-512x512.png",
+          url: "https://sautilabs.co.ke/android-chrome-512x512.png",
           width: 512,
           height: 512,
         },
       },
       {
         "@type": "WebSite",
-        "@id": "https://sauti.ai/#website",
-        url: "https://sauti.ai/",
+        "@id": "https://sautilabs.co.ke/#website",
+        url: "https://sautilabs.co.ke/",
         name: "Sauti Labs",
-        publisher: { "@id": "https://sauti.ai/#organization" },
+        publisher: { "@id": "https://sautilabs.co.ke/#organization" },
         inLanguage: "en",
       },
     ],

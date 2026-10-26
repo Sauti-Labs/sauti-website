@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Research | Sauti Labs",
     description: researchDescription,
-    url: "https://sauti.ai/research",
+    url: "https://sautilabs.co.ke/research",
     images: [{ url: "/opengraph-image", alt: "Sauti Labs African-language AI research" }],
   },
 };

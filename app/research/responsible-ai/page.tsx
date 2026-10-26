@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Responsible AI | Sauti Labs",
     description:
       "Research into responsible development, evaluation, and deployment of African-language AI systems.",
-    url: "https://sauti.ai/research/responsible-ai",
+    url: "https://sautilabs.co.ke/research/responsible-ai",
     images: [{ url: "/opengraph-image", alt: "Responsible AI research at Sauti Labs" }],
   },
 };

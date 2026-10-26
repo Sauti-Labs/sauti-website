@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Data & Research Governance | Sauti Labs",
     description:
       "Our approach to responsible data practices and rigorous research in African speech and language technology.",
-    url: "https://sauti.ai/commitments/data-governance",
+    url: "https://sautilabs.co.ke/commitments/data-governance",
     images: [{ url: "/opengraph-image", alt: "Sauti Labs data and research governance" }],
   },
 };

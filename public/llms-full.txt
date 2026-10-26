@@ -5,28 +5,28 @@ Sauti Labs is an African-language AI research and technology company. Its work c
 ## Company
 
 ### About
-https://sauti.ai/about
+https://sautilabs.co.ke/about
 
 Sauti Labs works across research, technology, and product development. Its public materials focus on enabling AI to understand, generate, and communicate across African languages, while connecting technical research to practical applications.
 
 ### Leadership
-https://sauti.ai/company/leadership
+https://sautilabs.co.ke/company/leadership
 
-- Bernard Abuto — Founder, CEO & Chief Research Officer. Leads company research direction, strategy, and development; focuses on machine learning research and AI systems engineering for speech and language technologies. Portrait: https://sauti.ai/leadership/bernard.jpeg. Profile: https://www.linkedin.com/in/bernard-abuto-888207343/
-- Daisy Oduor — Chief Operating Officer and Software Engineer. Leads operational coordination and supports the organisational foundations of the company's research and engineering work. Portrait: https://sauti.ai/leadership/daisy.jpeg. Profile: https://www.linkedin.com/in/daisyoduor/
-- Brian Noel — Chief Technology Officer. Leads technology and engineering, including software architecture, backend infrastructure, and reliable systems. Portrait: https://sauti.ai/leadership/noel.jpeg. Profile: https://www.linkedin.com/in/brian-noel-20443031b/
-- Godrick Narman Mwani — Chief Machine Learning Officer. Leads machine-learning work, with interests across machine learning, AI engineering, and software architecture. Portrait: https://sauti.ai/leadership/namaan.jpeg. Profile: https://www.linkedin.com/in/godrick-mwani/
-- Barry Yaola Shroldder — Chief Legal Officer. Leads legal, responsible AI, and governance initiatives; interests include technology law, intellectual property, data protection, digital rights, and technology policy. Portrait: https://sauti.ai/leadership/barry.jpeg. Profile: https://www.linkedin.com/in/shroldder-yaola-b1b461249/
+- Bernard Abuto — Founder, CEO & Chief Research Officer. Leads company research direction, strategy, and development; focuses on machine learning research and AI systems engineering for speech and language technologies. Portrait: https://sautilabs.co.ke/leadership/bernard.jpeg. Profile: https://www.linkedin.com/in/bernard-abuto-888207343/
+- Daisy Oduor — Chief Operating Officer and Software Engineer. Leads operational coordination and supports the organisational foundations of the company's research and engineering work. Portrait: https://sautilabs.co.ke/leadership/daisy.jpeg. Profile: https://www.linkedin.com/in/daisyoduor/
+- Brian Noel — Chief Technology Officer. Leads technology and engineering, including software architecture, backend infrastructure, and reliable systems. Portrait: https://sautilabs.co.ke/leadership/noel.jpeg. Profile: https://www.linkedin.com/in/brian-noel-20443031b/
+- Godrick Narman Mwani — Chief Machine Learning Officer. Leads machine-learning work, with interests across machine learning, AI engineering, and software architecture. Portrait: https://sautilabs.co.ke/leadership/namaan.jpeg. Profile: https://www.linkedin.com/in/godrick-mwani/
+- Barry Yaola Shroldder — Chief Legal Officer. Leads legal, responsible AI, and governance initiatives; interests include technology law, intellectual property, data protection, digital rights, and technology policy. Portrait: https://sautilabs.co.ke/leadership/barry.jpeg. Profile: https://www.linkedin.com/in/shroldder-yaola-b1b461249/
 
 ### Careers
-https://sauti.ai/company/careers
+https://sautilabs.co.ke/company/careers
 
 The careers page describes opportunity areas in machine learning research, speech and language research, AI systems and engineering, infrastructure, and related work.
 
 ## Research
 
 ### Research overview
-https://sauti.ai/research
+https://sautilabs.co.ke/research
 
 Sauti Labs' research pages describe five areas:
 
@@ -37,33 +37,33 @@ Sauti Labs' research pages describe five areas:
 - Responsible AI: safety, fairness, privacy, robustness, and societal implications of AI for African languages.
 
 Detailed pages:
-- https://sauti.ai/research/speech-intelligence
-- https://sauti.ai/research/language-intelligence
-- https://sauti.ai/research/language-resources
-- https://sauti.ai/research/model-intelligence
-- https://sauti.ai/research/responsible-ai
+- https://sautilabs.co.ke/research/speech-intelligence
+- https://sautilabs.co.ke/research/language-intelligence
+- https://sautilabs.co.ke/research/language-resources
+- https://sautilabs.co.ke/research/model-intelligence
+- https://sautilabs.co.ke/research/responsible-ai
 
 ## Sauti Cloud
-https://sauti.ai/cloud
+https://sautilabs.co.ke/cloud
 
 Sauti Cloud is described on the website as in development with early access waitlist information. The page mentions speech recognition, speech generation, and voice AI. Do not describe the service as generally available.
 
 ## Company commitments
 
-- Responsible AI: https://sauti.ai/commitments/responsible-ai
-- Privacy and data protection: https://sauti.ai/commitments/privacy
-- Security: https://sauti.ai/commitments/security
-- Data and research governance: https://sauti.ai/commitments/data-governance
-- Code of conduct: https://sauti.ai/commitments/code-of-conduct
+- Responsible AI: https://sautilabs.co.ke/commitments/responsible-ai
+- Privacy and data protection: https://sautilabs.co.ke/commitments/privacy
+- Security: https://sautilabs.co.ke/commitments/security
+- Data and research governance: https://sautilabs.co.ke/commitments/data-governance
+- Code of conduct: https://sautilabs.co.ke/commitments/code-of-conduct
 
 These pages describe Sauti Labs' public principles and approaches. They should not be treated as a guarantee of a specific certification, audit, or technical control unless that is explicitly stated on the relevant page.
 
 ## Machine-readable resources
 
-- Sitemap: https://sauti.ai/sitemap.xml
-- Robots policy: https://sauti.ai/robots.txt
-- Organization and website structured data: https://sauti.ai/
-- Person profiles and image references: https://sauti.ai/company/leadership
+- Sitemap: https://sautilabs.co.ke/sitemap.xml
+- Robots policy: https://sautilabs.co.ke/robots.txt
+- Organization and website structured data: https://sautilabs.co.ke/
+- Person profiles and image references: https://sautilabs.co.ke/company/leadership
 
 ## Source and attribution
 

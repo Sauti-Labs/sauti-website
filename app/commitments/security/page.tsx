@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Security | Sauti Labs",
     description:
       "How Sauti Labs considers the protection of data, AI systems, infrastructure, and research processes.",
-    url: "https://sauti.ai/commitments/security",
+    url: "https://sautilabs.co.ke/commitments/security",
     images: [{ url: "/opengraph-image", alt: "Sauti Labs security commitments" }],
   },
 };

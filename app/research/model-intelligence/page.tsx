@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Model Intelligence | Sauti Labs",
     description: "Research into model training and adaptation, performance evaluation, and computational efficiency for African languages.",
-    url: "https://sauti.ai/research/model-intelligence",
+    url: "https://sautilabs.co.ke/research/model-intelligence",
     images: [{ url: "/opengraph-image", alt: "Model Intelligence research at Sauti Labs" }],
   },
 };

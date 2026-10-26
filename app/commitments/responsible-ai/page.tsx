@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Responsible AI | Sauti Labs",
     description: pageDescription,
-    url: "https://sauti.ai/commitments/responsible-ai",
+    url: "https://sautilabs.co.ke/commitments/responsible-ai",
     images: [{ url: "/opengraph-image", alt: "Sauti Labs responsible AI commitments" }],
   },
 };

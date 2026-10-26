@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Leadership | Sauti Labs",
     description:
       "Meet Sauti Labs founder Bernard Abuto and executives Daisy Oduor, Brian Noel, Godrick Narman Mwani, and Barry Yaola Shroldder.",
-    url: "https://sauti.ai/company/leadership",
+    url: "https://sautilabs.co.ke/company/leadership",
     images: [{ url: "/opengraph-image", alt: "Leadership at Sauti Labs" }],
   },
   twitter: {
@@ -178,7 +178,7 @@ export default function Leadership() {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
     name: "Leadership at Sauti Labs",
-    url: "https://sauti.ai/company/leadership",
+    url: "https://sautilabs.co.ke/company/leadership",
     mainEntity: {
       "@type": "ItemList",
       itemListElement: [...founders, ...executives].map((leader, index) => ({
@@ -189,12 +189,12 @@ export default function Leadership() {
           name: leader.name,
           jobTitle: leader.title,
           description: leader.bio,
-          image: `https://sauti.ai${leader.image}`,
-          url: `https://sauti.ai/company/leadership#${leader.name
+          image: `https://sautilabs.co.ke${leader.image}`,
+          url: `https://sautilabs.co.ke/company/leadership#${leader.name
             .toLowerCase()
             .replace(/[^a-z0-9]+/g, "-")}`,
           sameAs: [leader.linkedin],
-          worksFor: { "@id": "https://sauti.ai/#organization" },
+          worksFor: { "@id": "https://sautilabs.co.ke/#organization" },
         },
       })),
     },

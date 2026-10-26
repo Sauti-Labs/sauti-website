@@ -19,7 +19,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://sauti.ai/sitemap.xml",
-    host: "https://sauti.ai",
+    sitemap: "https://sautilabs.co.ke/sitemap.xml",
+    host: "https://sautilabs.co.ke",
   };
 }

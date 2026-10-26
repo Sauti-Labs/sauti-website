@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "About | Sauti Labs",
     description:
       "We connect research, technology, and product development to advance AI across African languages.",
-    url: "https://sauti.ai/about",
+    url: "https://sautilabs.co.ke/about",
     images: [{ url: "/opengraph-image", alt: "About Sauti Labs" }],
   },
 };

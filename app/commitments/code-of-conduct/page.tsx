@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Code of Conduct | Sauti Labs",
     description:
       "The principles that guide respectful, inclusive, honest, and accountable work at Sauti Labs.",
-    url: "https://sauti.ai/commitments/code-of-conduct",
+    url: "https://sautilabs.co.ke/commitments/code-of-conduct",
     images: [{ url: "/opengraph-image", alt: "Sauti Labs code of conduct" }],
   },
 };

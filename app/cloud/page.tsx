@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Sauti Cloud — Early Access | Sauti Labs",
     description:
       "Sauti Cloud is in development. Join the waitlist for updates and early access opportunities for African speech and language AI.",
-    url: "https://sauti.ai/cloud",
+    url: "https://sautilabs.co.ke/cloud",
     images: [{ url: "/opengraph-image", alt: "Sauti Cloud by Sauti Labs" }],
   },
 };

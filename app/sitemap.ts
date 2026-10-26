@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sauti.ai";
+  const baseUrl = "https://sautilabs.co.ke";
   const monthly = "monthly" as const;
   const weekly = "weekly" as const;
 
