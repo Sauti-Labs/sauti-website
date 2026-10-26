@@ -286,7 +286,7 @@ function NavbarContents({ pathname }: { pathname: string }) {
           {/* Logo and wordmark */}
           <Link
             href="/"
-            aria-label="Sauti Labs â€” home"
+            aria-label="Sauti Labs — home"
             className="flex items-center gap-2.5 font-sans text-lg font-bold tracking-tight text-text hover:text-link"
           >
             <Image src={logo} alt="" priority className="h-14 w-auto rounded" />
