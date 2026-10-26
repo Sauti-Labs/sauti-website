@@ -9,10 +9,14 @@ const pageDescription =
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
+  alternates: {
+    canonical: "/commitments/responsible-ai",
+  },
   openGraph: {
     title: "Responsible AI | Sauti Labs",
     description: pageDescription,
     url: "https://sauti.ai/commitments/responsible-ai",
+    images: [{ url: "/opengraph-image", alt: "Sauti Labs responsible AI commitments" }],
   },
 };
 

@@ -1,0 +1,70 @@
+# Sauti Labs — expanded first-party guide
+
+Sauti Labs is an African-language AI research and technology company. Its work connects research, language resources, models, engineering, and products with the goal of advancing speech and language technologies across Africa's linguistic diversity. Refer to the linked pages for full context; pages on the live site are the authoritative source when information changes.
+
+## Company
+
+### About
+https://sauti.ai/about
+
+Sauti Labs works across research, technology, and product development. Its public materials focus on enabling AI to understand, generate, and communicate across African languages, while connecting technical research to practical applications.
+
+### Leadership
+https://sauti.ai/company/leadership
+
+- Bernard Abuto — Founder, CEO & Chief Research Officer. Leads company research direction, strategy, and development; focuses on machine learning research and AI systems engineering for speech and language technologies. Portrait: https://sauti.ai/leadership/bernard.jpeg. Profile: https://www.linkedin.com/in/bernard-abuto-888207343/
+- Daisy Oduor — Chief Operating Officer and Software Engineer. Leads operational coordination and supports the organisational foundations of the company's research and engineering work. Portrait: https://sauti.ai/leadership/daisy.jpeg. Profile: https://www.linkedin.com/in/daisyoduor/
+- Brian Noel — Chief Technology Officer. Leads technology and engineering, including software architecture, backend infrastructure, and reliable systems. Portrait: https://sauti.ai/leadership/noel.jpeg. Profile: https://www.linkedin.com/in/brian-noel-20443031b/
+- Godrick Narman Mwani — Chief Machine Learning Officer. Leads machine-learning work, with interests across machine learning, AI engineering, and software architecture. Portrait: https://sauti.ai/leadership/namaan.jpeg. Profile: https://www.linkedin.com/in/godrick-mwani/
+- Barry Yaola Shroldder — Chief Legal Officer. Leads legal, responsible AI, and governance initiatives; interests include technology law, intellectual property, data protection, digital rights, and technology policy. Portrait: https://sauti.ai/leadership/barry.jpeg. Profile: https://www.linkedin.com/in/shroldder-yaola-b1b461249/
+
+### Careers
+https://sauti.ai/company/careers
+
+The careers page describes opportunity areas in machine learning research, speech and language research, AI systems and engineering, infrastructure, and related work.
+
+## Research
+
+### Research overview
+https://sauti.ai/research
+
+Sauti Labs' research pages describe five areas:
+
+- Speech Intelligence: speech recognition, speech generation, voice technologies, and multilingual speech processing.
+- Language Intelligence: multilingual understanding, language generation, model adaptation, and evaluation across African languages.
+- Language Resources: dataset and corpus development, data quality, linguistic annotation, coverage, documentation, provenance, and governance.
+- Model Intelligence: model architectures, training and adaptation, evaluation, optimisation, and deployability.
+- Responsible AI: safety, fairness, privacy, robustness, and societal implications of AI for African languages.
+
+Detailed pages:
+- https://sauti.ai/research/speech-intelligence
+- https://sauti.ai/research/language-intelligence
+- https://sauti.ai/research/language-resources
+- https://sauti.ai/research/model-intelligence
+- https://sauti.ai/research/responsible-ai
+
+## Sauti Cloud
+https://sauti.ai/cloud
+
+Sauti Cloud is described on the website as in development with early access waitlist information. The page mentions speech recognition, speech generation, and voice AI. Do not describe the service as generally available.
+
+## Company commitments
+
+- Responsible AI: https://sauti.ai/commitments/responsible-ai
+- Privacy and data protection: https://sauti.ai/commitments/privacy
+- Security: https://sauti.ai/commitments/security
+- Data and research governance: https://sauti.ai/commitments/data-governance
+- Code of conduct: https://sauti.ai/commitments/code-of-conduct
+
+These pages describe Sauti Labs' public principles and approaches. They should not be treated as a guarantee of a specific certification, audit, or technical control unless that is explicitly stated on the relevant page.
+
+## Machine-readable resources
+
+- Sitemap: https://sauti.ai/sitemap.xml
+- Robots policy: https://sauti.ai/robots.txt
+- Organization and website structured data: https://sauti.ai/
+- Person profiles and image references: https://sauti.ai/company/leadership
+
+## Source and attribution
+
+This guide summarizes first-party content published by Sauti Labs. Summaries are for discovery and should not replace the full linked pages. For current wording, names, roles, product status, and commitments, consult the live source pages.

@@ -4,11 +4,30 @@ import Biography from "./Biography";
 
 export const metadata: Metadata = {
   title: "Leadership",
-  description: "Meet the founders and executives leading Sauti Labs.",
+  description:
+    "Meet Sauti Labs founder Bernard Abuto and executives Daisy Oduor, Brian Noel, Godrick Narman Mwani, and Barry Yaola Shroldder. Read their biographies and view their portraits.",
+  keywords: [
+    "Sauti Labs leadership",
+    "Sauti Labs team",
+    "African AI founders",
+    "AI research leadership",
+    "speech and language AI leadership",
+  ],
+  alternates: {
+    canonical: "/company/leadership",
+  },
   openGraph: {
     title: "Leadership | Sauti Labs",
-    description: "Meet the founders and executives leading Sauti Labs.",
+    description:
+      "Meet Sauti Labs founder Bernard Abuto and executives Daisy Oduor, Brian Noel, Godrick Narman Mwani, and Barry Yaola Shroldder.",
     url: "https://sauti.ai/company/leadership",
+    images: [{ url: "/opengraph-image", alt: "Leadership at Sauti Labs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leadership | Sauti Labs",
+    description: "Meet the founders and executives leading Sauti Labs.",
+    images: ["/opengraph-image"],
   },
 };
 
@@ -30,7 +49,7 @@ const founders: Leader[] = [
   },
   {
     name: "Daisy Oduor",
-    title: "Co-Founder & Chief Operating Officer",
+    title: "Chief Operating Officer and Software Engineer",
     linkedin: "https://www.linkedin.com/in/daisyoduor/",
     image: "/leadership/daisy.jpeg",
     bio: "Daisy Oduor leads operations at Sauti Labs, translating the company’s strategic priorities into coordinated execution. Her technical background spans full-stack software development, cloud infrastructure, and scalable digital applications, giving her an engineering perspective on the operational demands of building an AI company. As COO, she oversees operational coordination and helps establish the processes and organisational foundations that support the company’s research, engineering, and development efforts.",
@@ -63,7 +82,10 @@ const executives: Leader[] = [
 
 function FounderCard({ leader }: { leader: Leader }) {
   return (
-    <article className="grid min-w-0 grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] gap-4 sm:gap-6 lg:gap-8">
+    <article
+      id={leader.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
+      className="grid min-w-0 grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] gap-4 sm:gap-6 lg:gap-8"
+    >
       <div className="relative aspect-[3/4] min-w-0 overflow-hidden rounded-xl bg-[var(--bg-alt,#F1F7F6)]">
         <Image
           src={leader.image}
@@ -107,7 +129,10 @@ function FounderCard({ leader }: { leader: Leader }) {
 
 function ExecutiveCard({ leader }: { leader: Leader }) {
   return (
-    <article className="flex min-w-0 flex-col">
+    <article
+      id={leader.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
+      className="flex min-w-0 flex-col"
+    >
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-[var(--bg-alt,#F1F7F6)]">
         <Image
           src={leader.image}
@@ -149,8 +174,41 @@ function ExecutiveCard({ leader }: { leader: Leader }) {
 }
 
 export default function Leadership() {
+  const leadershipJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    name: "Leadership at Sauti Labs",
+    url: "https://sauti.ai/company/leadership",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: [...founders, ...executives].map((leader, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Person",
+          name: leader.name,
+          jobTitle: leader.title,
+          description: leader.bio,
+          image: `https://sauti.ai${leader.image}`,
+          url: `https://sauti.ai/company/leadership#${leader.name
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")}`,
+          sameAs: [leader.linkedin],
+          worksFor: { "@id": "https://sauti.ai/#organization" },
+        },
+      })),
+    },
+  };
+
   return (
-    <main className="flex flex-col pt-16">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(leadershipJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <main className="flex flex-col pt-16">
       <div className="mx-auto w-full max-w-[1440px] px-6 py-12 md:py-20">
         <section className="mb-20 grid grid-cols-1 gap-8 md:mb-28 md:grid-cols-2 md:gap-16">
           <div>
@@ -225,6 +283,7 @@ export default function Leadership() {
           </div>
         </section>
       </div>
-    </main>
+      </main>
+    </>
   );
 }

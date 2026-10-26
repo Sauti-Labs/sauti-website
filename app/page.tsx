@@ -5,14 +5,25 @@ import { ScrollWaveCta } from "@/components/sections/trailer";
 
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "African Speech and Language AI",
   description:
     "Sauti Labs is an African AI research and technology organisation. We build the data, models, infrastructure and products that let machines understand and speak African languages.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Sauti Labs - Building Speech and Language Intelligence for Africa",
     description:
       "Sauti Labs is an African AI research and technology organisation. We build the data, models, infrastructure and products that let machines understand and speak African languages.",
     url: "https://sauti.ai",
+    images: [{ url: "/opengraph-image", alt: "Sauti Labs — African speech and language intelligence" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sauti Labs - Building Speech and Language Intelligence for Africa",
+    description:
+      "Sauti Labs is an African AI research and technology organisation. We build the data, models, infrastructure and products that let machines understand and speak African languages.",
+    images: ["/opengraph-image"],
   },
 };
 

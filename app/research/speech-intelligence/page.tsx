@@ -4,11 +4,15 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Speech Intelligence",
-  description: "Why speech AI struggles across African accents, languages and data gaps.",
+  description: "Sauti Labs researches speech recognition, speech generation, voice AI, and multilingual speech systems for African languages and accents.",
+  alternates: {
+    canonical: "/research/speech-intelligence",
+  },
   openGraph: {
     title: "Speech Intelligence | Sauti Labs",
-    description: "Why speech AI struggles across African accents, languages and data gaps.",
+    description: "Sauti Labs researches speech recognition, speech generation, voice AI, and multilingual speech systems for African languages and accents.",
     url: "https://sauti.ai/research/speech-intelligence",
+    images: [{ url: "/opengraph-image", alt: "Speech Intelligence research at Sauti Labs" }],
   },
 };
 

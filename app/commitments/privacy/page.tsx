@@ -5,10 +5,15 @@ export const metadata: Metadata = {
   title: "Privacy and Data Protection",
   description:
     "How Sauti Labs protects personal information and governs speech data, language resources, and responsible African-language AI research.",
+  alternates: {
+    canonical: "/commitments/privacy",
+  },
   openGraph: {
     title: "Privacy and Data Protection | Sauti Labs",
     description:
       "Our approach to privacy, speech data, language resources, and responsible AI research.",
+    url: "https://sauti.ai/commitments/privacy",
+    images: [{ url: "/opengraph-image", alt: "Sauti Labs privacy and data protection" }],
   },
 };
 

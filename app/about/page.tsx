@@ -7,11 +7,15 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Learn about Sauti Labs and our mission to make artificial intelligence more capable, natural, and accessible across African languages.",
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     title: "About | Sauti Labs",
     description:
       "We connect research, technology, and product development to advance AI across African languages.",
     url: "https://sauti.ai/about",
+    images: [{ url: "/opengraph-image", alt: "About Sauti Labs" }],
   },
 };
 
@@ -185,4 +189,3 @@ export default function About() {
     </main>
   );
 }
-

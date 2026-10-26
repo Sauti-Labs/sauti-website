@@ -282,14 +282,14 @@ function NavbarContents({ pathname }: { pathname: string }) {
       )}
     >
       <nav ref={navRef} aria-label="Primary" className="mx-auto max-w-[1440px] px-5 sm:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo and wordmark */}
           <Link
             href="/"
             aria-label="Sauti Labs â€” home"
             className="flex items-center gap-2.5 font-sans text-lg font-bold tracking-tight text-text hover:text-link"
           >
-            <Image src={logo} alt="" priority className="h-16 w-auto rounded" />
+            <Image src={logo} alt="" priority className="h-14 w-auto rounded" />
             {SHOW_WORDMARK_TEXT && <span aria-hidden="true">SAUTI LABS</span>}
           </Link>
 
@@ -321,8 +321,7 @@ function NavbarContents({ pathname }: { pathname: string }) {
           </div>
 
           {/* Mobile bar */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <CtaButton className="hidden min-[360px]:inline-flex" />
+          <div className="flex items-center gap-1 lg:hidden">
             <button
               ref={menuButtonRef}
               type="button"
@@ -330,7 +329,7 @@ function NavbarContents({ pathname }: { pathname: string }) {
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="flex size-11 items-center justify-center rounded-md text-text hover:bg-bg-alt"
+              className="flex size-11 shrink-0 items-center justify-center rounded-md text-text hover:bg-bg-alt"
             >
               <svg
                 aria-hidden="true"
@@ -348,6 +347,7 @@ function NavbarContents({ pathname }: { pathname: string }) {
                 )}
               </svg>
             </button>
+            <CtaButton className="min-h-10 shrink-0 gap-1 px-2.5 text-xs sm:px-4 sm:text-ui [&>svg]:hidden sm:[&>svg]:inline" />
           </div>
         </div>
 
@@ -355,7 +355,7 @@ function NavbarContents({ pathname }: { pathname: string }) {
         <div
           id="mobile-menu"
           hidden={!mobileOpen}
-          className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto border-t border-border bg-bg px-5 pb-10 sm:px-8 lg:hidden"
+          className="fixed inset-x-0 bottom-0 top-20 z-40 overflow-y-auto border-t border-border bg-bg px-5 pb-10 sm:px-8 lg:hidden"
         >
           <Link
             href={homeLink.href}
@@ -370,7 +370,6 @@ function NavbarContents({ pathname }: { pathname: string }) {
           {navGroups.map((g) => (
             <MobileGroup key={g.id} group={g} pathname={pathname} />
           ))}
-          <CtaButton className="mt-6 flex w-full min-[360px]:hidden" />
         </div>
       </nav>
     </header>
@@ -381,6 +380,4 @@ export function Navbar() {
   const pathname = usePathname();
   return <NavbarContents key={pathname} pathname={pathname} />;
 }
-
-
 

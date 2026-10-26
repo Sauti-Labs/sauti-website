@@ -1,4 +1,21 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Code of Conduct",
+  description:
+    "Read the Sauti Labs code of conduct covering respect, inclusion, honest communication, accountability, collaboration, and responsible representation.",
+  alternates: {
+    canonical: "/commitments/code-of-conduct",
+  },
+  openGraph: {
+    title: "Code of Conduct | Sauti Labs",
+    description:
+      "The principles that guide respectful, inclusive, honest, and accountable work at Sauti Labs.",
+    url: "https://sauti.ai/commitments/code-of-conduct",
+    images: [{ url: "/opengraph-image", alt: "Sauti Labs code of conduct" }],
+  },
+};
 
 const principles = [
   {

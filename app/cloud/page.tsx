@@ -6,6 +6,16 @@ export const metadata: Metadata = {
   title: "Sauti Cloud — Early Access",
   description:
     "Join the Sauti Cloud waitlist for updates and early access opportunities for African speech and language AI.",
+  alternates: {
+    canonical: "/cloud",
+  },
+  openGraph: {
+    title: "Sauti Cloud — Early Access | Sauti Labs",
+    description:
+      "Sauti Cloud is in development. Join the waitlist for updates and early access opportunities for African speech and language AI.",
+    url: "https://sauti.ai/cloud",
+    images: [{ url: "/opengraph-image", alt: "Sauti Cloud by Sauti Labs" }],
+  },
 };
 
 const capabilities = [

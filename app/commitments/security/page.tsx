@@ -6,11 +6,15 @@ export const metadata: Metadata = {
   title: "Security",
   description:
     "How Sauti Labs approaches security across AI research, speech and language data, models, infrastructure, and applications.",
+  alternates: {
+    canonical: "/commitments/security",
+  },
   openGraph: {
     title: "Security | Sauti Labs",
     description:
       "How Sauti Labs considers the protection of data, AI systems, infrastructure, and research processes.",
     url: "https://sauti.ai/commitments/security",
+    images: [{ url: "/opengraph-image", alt: "Sauti Labs security commitments" }],
   },
 };
 

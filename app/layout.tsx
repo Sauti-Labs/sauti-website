@@ -35,6 +35,18 @@ export const metadata: Metadata = {
   creator: "Sauti Labs",
   publisher: "Sauti Labs",
   metadataBase: new URL("https://sauti.ai"),
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -44,9 +56,7 @@ export const metadata: Metadata = {
     siteName: "Sauti Labs",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        url: "/opengraph-image",
         alt: "Sauti Labs",
       },
     ],
@@ -55,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sauti Labs - Building Speech and Language Intelligence for Africa",
     description: "Sauti Labs is an African-language AI company building the research, models, data and technologies needed to help AI understand, speak and serve Africa's linguistic diversity.",
-    images: ["/og-image.png"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -73,16 +83,39 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Sauti Labs",
-    description: "Sauti Labs is an African-language AI company building the research, models, data and technologies needed to help AI understand, speak and serve Africa's linguistic diversity.",
-    url: "https://sauti.ai",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://sauti.ai/sauti-logo-mark.jpeg",
-      width: 200,
-      height: 200,
-    },
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://sauti.ai/#organization",
+        name: "Sauti Labs",
+        description:
+          "Sauti Labs is an African-language AI company building the research, models, data and technologies needed to help AI understand, speak and serve Africa's linguistic diversity.",
+        url: "https://sauti.ai/",
+        sameAs: ["https://www.linkedin.com/company/sauti-labs"],
+        knowsAbout: [
+          "African languages",
+          "Speech recognition",
+          "Speech generation",
+          "Multilingual language models",
+          "Language resources and datasets",
+          "Responsible artificial intelligence",
+        ],
+        logo: {
+          "@type": "ImageObject",
+          url: "https://sauti.ai/android-chrome-512x512.png",
+          width: 512,
+          height: 512,
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://sauti.ai/#website",
+        url: "https://sauti.ai/",
+        name: "Sauti Labs",
+        publisher: { "@id": "https://sauti.ai/#organization" },
+        inLanguage: "en",
+      },
+    ],
   };
 
   return (

@@ -2,13 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Data & Research Governance | Sauti Labs",
+  title: "Data & Research Governance",
   description:
     "How Sauti Labs approaches data provenance, research integrity, reproducibility, and the responsible use of African speech and language resources.",
+  alternates: {
+    canonical: "/commitments/data-governance",
+  },
   openGraph: {
     title: "Data & Research Governance | Sauti Labs",
     description:
       "Our approach to responsible data practices and rigorous research in African speech and language technology.",
+    url: "https://sauti.ai/commitments/data-governance",
+    images: [{ url: "/opengraph-image", alt: "Sauti Labs data and research governance" }],
   },
 };
 

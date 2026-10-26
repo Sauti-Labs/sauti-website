@@ -6,11 +6,15 @@ export const metadata: Metadata = {
   title: "Language Intelligence",
   description:
     "Research into multilingual language understanding, language generation, and the evaluation of language models across African languages.",
+  alternates: {
+    canonical: "/research/language-intelligence",
+  },
   openGraph: {
     title: "Language Intelligence | Sauti Labs",
     description:
       "Research into multilingual language understanding, language generation, and the evaluation of language models across African languages.",
     url: "https://sauti.ai/research/language-intelligence",
+    images: [{ url: "/opengraph-image", alt: "Language Intelligence research at Sauti Labs" }],
   },
 };
 

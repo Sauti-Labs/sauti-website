@@ -5,10 +5,14 @@ import ModelResearchAreas from "./ModelResearchAreas";
 export const metadata: Metadata = {
   title: "Model Intelligence",
   description: "Research into model training and adaptation, performance evaluation, and computational efficiency for African languages.",
+  alternates: {
+    canonical: "/research/model-intelligence",
+  },
   openGraph: {
     title: "Model Intelligence | Sauti Labs",
     description: "Research into model training and adaptation, performance evaluation, and computational efficiency for African languages.",
     url: "https://sauti.ai/research/model-intelligence",
+    images: [{ url: "/opengraph-image", alt: "Model Intelligence research at Sauti Labs" }],
   },
 };
 

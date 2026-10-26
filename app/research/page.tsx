@@ -7,10 +7,14 @@ const researchDescription =
 export const metadata: Metadata = {
   title: "Research",
   description: researchDescription,
+  alternates: {
+    canonical: "/research",
+  },
   openGraph: {
     title: "Research | Sauti Labs",
     description: researchDescription,
     url: "https://sauti.ai/research",
+    images: [{ url: "/opengraph-image", alt: "Sauti Labs African-language AI research" }],
   },
 };
 
