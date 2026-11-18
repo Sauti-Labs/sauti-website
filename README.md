@@ -1,4 +1,4 @@
-﻿# sauti-website
+﻿# sauti-website.
 
 The public-facing website for [Sauti Labs](https://github.com/Sauti-Labs).
 
